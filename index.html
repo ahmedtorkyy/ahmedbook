@@ -21,16 +21,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    :root{--navy:#141414;--navy-dark:#000000;--gold:#D4AF37;--gold-light:#f0d060;--white:#ffffff;--light:#0a0a0a;--text:#ededed;--muted:#9a9a9a;--card:#161616;}
+    :root{--navy:#141414;--navy-dark:#000000;--gold:#ffffff;--gold-light:#d6d6d6;--white:#ffffff;--light:#0a0a0a;--text:#ededed;--muted:#9a9a9a;--card:#161616;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'Cairo',sans-serif;background:var(--light);color:var(--text);line-height:1.7;}
     img{max-width:100%;display:block;}
     a{color:inherit;text-decoration:none;}
 
-    /* Language toggle */
-    .ar{display:block;}.en{display:none;}
-    html[dir="ltr"] .ar{display:none;}html[dir="ltr"] .en{display:block;}
+    /* Language toggle — hide only the inactive language; active keeps its natural display */
+    [dir="rtl"] .en{display:none !important;}
+    [dir="ltr"] .ar{display:none !important;}
 
     /* ── NAV ── */
     nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
@@ -105,7 +105,7 @@
     /* ── PRICING ── */
     .pricing{background:var(--navy-dark);}
     .pricing-single{max-width:520px;margin:32px auto 0;}
-    .pricing-card{border:3px solid var(--gold);border-radius:20px;padding:40px 32px;text-align:center;position:relative;box-shadow:0 12px 40px rgba(212,175,55,.2);}
+    .pricing-card{border:3px solid var(--gold);border-radius:20px;padding:40px 32px;text-align:center;position:relative;box-shadow:0 12px 40px rgba(255,255,255,.12);}
     .pricing-badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:.78rem;font-weight:700;padding:5px 20px;border-radius:20px;white-space:nowrap;}
     .pricing-langs{display:flex;justify-content:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
     .pricing-lang-pill{background:var(--card);border:1px solid #2a2a2a;border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:700;color:var(--white);}
@@ -120,7 +120,7 @@
     .pricing-features li:last-child{border-bottom:none;}
     .pricing-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;font-size:1rem;}
     .buy-btn{display:block;width:100%;background:var(--gold);color:var(--navy);border:none;padding:16px;border-radius:12px;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;margin-top:8px;}
-    .buy-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,.4);}
+    .buy-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,255,255,.25);}
     .paymob-note{font-size:.75rem;color:var(--muted);margin-top:10px;}
     .pay-icons{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
     .pay-icon{background:var(--card);border:1px solid #2a2a2a;border-radius:5px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--muted);}
@@ -150,11 +150,11 @@
     .footer-links a:hover{color:var(--white);}
 
     /* ── WHATSAPP FLOAT ── */
-    .whatsapp-float{position:fixed;bottom:24px;left:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px 12px 16px;border-radius:50px;box-shadow:0 4px 20px rgba(37,211,102,.45);font-family:inherit;font-size:.88rem;font-weight:700;text-decoration:none;transition:all .2s;animation:wa-pulse 2.5s infinite;}
+    .whatsapp-float{position:fixed;bottom:24px;left:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#111;color:#fff;border:1.5px solid #fff;padding:12px 20px 12px 16px;border-radius:50px;box-shadow:0 4px 20px rgba(0,0,0,.5);font-family:inherit;font-size:.88rem;font-weight:700;text-decoration:none;transition:all .2s;animation:wa-pulse 2.5s infinite;}
     html[dir="ltr"] .whatsapp-float{left:auto;right:24px;}
     .whatsapp-float i{font-size:1.4rem;}
-    .whatsapp-float:hover{background:#1fbe5a;transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,211,102,.55);}
-    @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45);}50%{box-shadow:0 4px 28px rgba(37,211,102,.75);}}
+    .whatsapp-float:hover{background:#fff;color:#111;transform:translateY(-3px);box-shadow:0 8px 28px rgba(255,255,255,.35);}
+    @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(255,255,255,.18);}50%{box-shadow:0 4px 28px rgba(255,255,255,.32);}}
     @media(max-width:480px){.whatsapp-float span{display:none;}.whatsapp-float{padding:14px;border-radius:50%;}}
   </style>
 </head>
@@ -185,8 +185,8 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-covers">
-      <img src="books/cover_arabic.png" class="hero-cover" alt="غلاف كتاب ربّوهم بشكل طبيعي — النسخة العربية" />
-      <img src="books/cover_english.png" class="hero-cover" alt="Raise Them Normal — English edition book cover" />
+      <img src="books/cover_arabic.png" class="hero-cover ar" alt="غلاف كتاب ربّوهم بشكل طبيعي" />
+      <img src="books/cover_english.png" class="hero-cover en" alt="Raise Them Normal book cover" />
     </div>
     <div class="hero-badge ar">صدر حديثاً ✦ النسختين في طلب واحد</div>
     <div class="hero-badge en">New Release ✦ Both Editions, One Price</div>
@@ -219,7 +219,7 @@
         <hr class="divider" />
         <p class="lead ar">اتولدت فاقد للبصر. واشتغلت في صمت. وكسبت مليون متابع — بدون ما أعرض نفسي ضحية أو أستغل إعاقتي.</p>
         <p class="lead en">I was born blind. I worked in silence. And I built an audience of over one million — without playing the victim or using my disability as a hook.</p>
-        <p class="ar">اتخرجت من جامعة أاست تخصص تسويق رقمي. اشتغلت مع فودافون في تطوير ساعة ذكية للمكفوفين. وبكتب ده بعد حياة عشتها من الجوه — مش من الكتب.</p>
+        <p class="ar">اتخرجت من جامعة aast تخصص تسويق رقمي. اشتغلت مع فودافون في تطوير ساعة ذكية للمكفوفين. وبكتب ده بعد حياة عشتها — مش من الكتب.</p>
         <p class="en">I graduated in digital marketing, worked with Vodafone on a smartwatch for the blind, and I wrote this from a life lived from the inside — not from books.</p>
         <div class="about-stats">
           <div class="stat">
@@ -242,8 +242,8 @@
           </div>
         </div>
       </div>
-      <div class="author-logo-box">
-        <img src="assets/torky-logo.png" alt="أحمد تركي — Ahmed Torky" />
+      <div class="author-photo-box">
+        <img src="assets/author.jpg" alt="أحمد تركي — Ahmed Torky" />
       </div>
     </div>
   </div>
@@ -326,15 +326,6 @@
         <a href="KASHIER_LINK_HERE" class="buy-btn ar" target="_blank">اشتري دلوقتي — ١٠٩ جنيه</a>
         <a href="KASHIER_LINK_HERE" class="buy-btn en" target="_blank">Buy Now — 109 EGP</a>
 
-        <p class="paymob-note ar">فيزا ✦ ماستركارد ✦ ميزة ✦ فوري ✦ Vodafone Cash</p>
-        <p class="paymob-note en">Visa ✦ Mastercard ✦ Meeza ✦ Fawry ✦ Vodafone Cash</p>
-        <div class="pay-icons">
-          <span class="pay-icon">Visa</span>
-          <span class="pay-icon">Mastercard</span>
-          <span class="pay-icon">Meeza</span>
-          <span class="pay-icon">Fawry</span>
-          <span class="pay-icon">VodafoneCash</span>
-        </div>
         <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع الكتابين هيوصلوك على إيميلك فوراً.</p>
         <p class="secure-note en">🔒 Secure encrypted payment — both editions sent to your email immediately after.</p>
       </div>
@@ -347,8 +338,6 @@
   <div class="container">
     <div class="section-tag ar">أسئلة شائعة</div>
     <div class="section-tag en">FAQ</div>
-    <h2 class="ar">أسئلة وأجوبة</h2>
-    <h2 class="en">Common Questions</h2>
     <div class="faq-list">
 
       <div class="faq-item">
@@ -413,8 +402,8 @@
 <!-- ══ FOOTER ══ -->
 <footer>
   <img src="assets/book-logo.png" class="footer-logo" alt="ربّوهم بشكل طبيعي — Raise Them Normal" />
-  <p class="ar">كُتِب بـ <strong>أحمد تركي</strong> — صانع محتوى ومليون متابع ❤️</p>
-  <p class="en">Written by <strong>Ahmed Torky</strong> — Content Creator, 1M+ Followers ❤️</p>
+  <p class="ar">كاتب الكتاب <strong>احمد تركي</strong></p>
+  <p class="en">Book Author: <strong>Ahmed Torky</strong></p>
   <p style="margin-top:8px;font-size:.72rem;" class="ar">"اشتغل بصمت. خلي نجاحك يتكلم."</p>
   <p style="margin-top:8px;font-size:.72rem;" class="en">"Work hard in silence. Let your success make the noise."</p>
 
