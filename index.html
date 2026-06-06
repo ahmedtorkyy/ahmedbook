@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raise Them Normal — Ahmed Torky | ربيهم عادي — أحمد تركي</title>
+  <title>Raise Them Normal — Ahmed Torky | ربّوهم بشكل طبيعي — أحمد تركي</title>
   <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
   <!-- Open Graph -->
-  <meta property="og:title" content="ربيهم عادي — أحمد تركي" />
+  <meta property="og:title" content="ربّوهم بشكل طبيعي — أحمد تركي" />
   <meta property="og:description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
   <meta property="og:image" content="https://ahmedtorkyy.netlify.app/books/cover_arabic.png" />
   <meta property="og:url" content="https://ahmedtorkyy.netlify.app" />
@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    :root{--navy:#1A4E7A;--navy-dark:#0f2f4a;--gold:#D4AF37;--gold-light:#f0d060;--white:#ffffff;--light:#f8f9fb;--text:#1a1a2e;--muted:#6b7a8d;}
+    :root{--navy:#141414;--navy-dark:#000000;--gold:#D4AF37;--gold-light:#f0d060;--white:#ffffff;--light:#0a0a0a;--text:#ededed;--muted:#9a9a9a;--card:#161616;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'Cairo',sans-serif;background:var(--light);color:var(--text);line-height:1.7;}
@@ -43,7 +43,7 @@
     .nav-buy-btn:hover{background:var(--gold-light);}
 
     /* ── HERO ── */
-    .hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,#1e5f8a 100%);color:var(--white);padding:60px 24px 80px;text-align:center;}
+    .hero{background:linear-gradient(135deg,#000000 0%,#0d0d0d 55%,#1a1a1a 100%);color:var(--white);padding:60px 24px 80px;text-align:center;}
     .hero-inner{max-width:900px;margin:0 auto;}
     .hero-covers{display:flex;justify-content:center;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
     .hero-cover{width:170px;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5);transition:transform .3s;}
@@ -51,7 +51,7 @@
     .hero-cover-placeholder{width:170px;height:240px;border-radius:10px;background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.85rem;font-weight:700;}
     .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.8rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:14px;}
     .hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;line-height:1.2;margin-bottom:14px;}
-    .hero h1 span{color:var(--gold);}
+    .hero h1 span{color:var(--white);}
     .hero p{font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.85);max-width:600px;margin:0 auto 32px;}
     .hero-cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
     .btn-primary{background:var(--gold);color:var(--navy);border:none;padding:14px 32px;border-radius:8px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;display:inline-block;}
@@ -65,18 +65,18 @@
     section{padding:64px 24px;}
     .container{max-width:880px;margin:0 auto;}
     .section-tag{display:inline-block;color:var(--gold);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;}
-    h2{font-size:clamp(1.4rem,4vw,2.1rem);font-weight:900;color:var(--navy);margin-bottom:16px;line-height:1.3;}
+    h2{font-size:clamp(1.4rem,4vw,2.1rem);font-weight:900;color:var(--white);margin-bottom:16px;line-height:1.3;}
     .lead{font-size:1rem;color:var(--muted);margin-bottom:28px;max-width:640px;}
     .divider{border:none;border-top:2px solid var(--gold);width:56px;margin:14px 0;}
     .divider.center{margin:14px auto;}
     .text-center{text-align:center;}
 
     /* ── ABOUT ── */
-    .about{background:var(--white);}
+    .about{background:var(--navy-dark);}
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
     @media(max-width:640px){.about-grid{grid-template-columns:1fr;}}
     .about-stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;}
-    .stat-number{font-size:2rem;font-weight:900;color:var(--navy);display:block;}
+    .stat-number{font-size:2rem;font-weight:900;color:var(--gold);display:block;}
     .stat-label{font-size:.78rem;color:var(--muted);}
 
     /* Author photo */
@@ -91,11 +91,11 @@
     .inside{background:var(--light);}
     .chapters-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
     @media(max-width:580px){.chapters-grid{grid-template-columns:1fr;}}
-    .chapter-card{background:var(--white);border-radius:12px;padding:18px 22px;border-right:4px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s;}
+    .chapter-card{background:var(--card);border-radius:12px;padding:18px 22px;border-right:4px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s;}
     html[dir="ltr"] .chapter-card{border-right:none;border-left:4px solid var(--gold);}
-    .chapter-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.1);}
+    .chapter-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.55);}
     .chapter-num{color:var(--gold);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
-    .chapter-title{font-size:.9rem;font-weight:700;color:var(--navy);margin-top:4px;}
+    .chapter-title{font-size:.9rem;font-weight:700;color:var(--white);margin-top:4px;}
 
     /* ── QUOTE STRIP ── */
     .quote-strip{background:var(--navy);color:var(--white);text-align:center;padding:56px 24px;}
@@ -103,19 +103,19 @@
     .quote-strip cite{display:block;margin-top:14px;color:var(--gold);font-size:.88rem;font-style:normal;font-weight:600;}
 
     /* ── PRICING ── */
-    .pricing{background:var(--white);}
+    .pricing{background:var(--navy-dark);}
     .pricing-single{max-width:520px;margin:32px auto 0;}
     .pricing-card{border:3px solid var(--gold);border-radius:20px;padding:40px 32px;text-align:center;position:relative;box-shadow:0 12px 40px rgba(212,175,55,.2);}
     .pricing-badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:.78rem;font-weight:700;padding:5px 20px;border-radius:20px;white-space:nowrap;}
     .pricing-langs{display:flex;justify-content:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
-    .pricing-lang-pill{background:var(--light);border:1px solid #e5e7eb;border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:700;color:var(--navy);}
-    .pricing-title{font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:6px;}
+    .pricing-lang-pill{background:var(--card);border:1px solid #2a2a2a;border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:700;color:var(--white);}
+    .pricing-title{font-size:1.3rem;font-weight:900;color:var(--white);margin-bottom:6px;}
     .pricing-subtitle{font-size:.88rem;color:var(--muted);margin-bottom:20px;}
-    .pricing-price{font-size:3rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;}
+    .pricing-price{font-size:3rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px;}
     .pricing-price span{font-size:1.1rem;color:var(--muted);font-weight:400;}
     .pricing-features{list-style:none;margin:22px 0;text-align:right;}
     html[dir="ltr"] .pricing-features{text-align:left;}
-    .pricing-features li{padding:7px 0;font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px;justify-content:flex-end;border-bottom:1px solid #f0f0f0;}
+    .pricing-features li{padding:7px 0;font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px;justify-content:flex-start;border-bottom:1px solid #242424;}
     html[dir="ltr"] .pricing-features li{justify-content:flex-start;}
     .pricing-features li:last-child{border-bottom:none;}
     .pricing-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;font-size:1rem;}
@@ -123,14 +123,14 @@
     .buy-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,.4);}
     .paymob-note{font-size:.75rem;color:var(--muted);margin-top:10px;}
     .pay-icons{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
-    .pay-icon{background:var(--light);border:1px solid #e5e7eb;border-radius:5px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--muted);}
+    .pay-icon{background:var(--card);border:1px solid #2a2a2a;border-radius:5px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--muted);}
     .secure-note{margin-top:18px;font-size:.8rem;color:var(--muted);}
 
     /* ── FAQ ── */
     .faq{background:var(--light);}
     .faq-list{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
-    .faq-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);}
-    .faq-q{width:100%;background:none;border:none;padding:16px 22px;font-family:inherit;font-size:.9rem;font-weight:700;color:var(--navy);cursor:pointer;text-align:right;display:flex;align-items:center;justify-content:space-between;}
+    .faq-item{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.4);border:1px solid #1e1e1e;}
+    .faq-q{width:100%;background:none;border:none;padding:16px 22px;font-family:inherit;font-size:.9rem;font-weight:700;color:var(--white);cursor:pointer;text-align:right;display:flex;align-items:center;justify-content:space-between;}
     html[dir="ltr"] .faq-q{text-align:left;}
     .faq-q .icon{font-size:1.1rem;transition:transform .2s;flex-shrink:0;}
     .faq-q[aria-expanded="true"] .icon{transform:rotate(45deg);}
@@ -162,9 +162,9 @@
 
 <!-- ══ NAV ══ -->
 <nav>
-  <a href="#" class="nav-logo" aria-label="ربيهم عادي — Raise Them Normal">
+  <a href="#" class="nav-logo" aria-label="ربّوهم بشكل طبيعي — Raise Them Normal">
     <img src="assets/logo-icon.png" class="nav-logo-icon" alt="" />
-    <span class="ar">ربيهم عادي</span>
+    <span class="ar">ربّوهم بشكل طبيعي</span>
     <span class="en">Raise Them Normal</span>
   </a>
   <div class="nav-right">
@@ -185,13 +185,13 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-covers">
-      <img src="books/cover_arabic.png" class="hero-cover" alt="غلاف كتاب ربيهم عادي — النسخة العربية" />
+      <img src="books/cover_arabic.png" class="hero-cover" alt="غلاف كتاب ربّوهم بشكل طبيعي — النسخة العربية" />
       <img src="books/cover_english.png" class="hero-cover" alt="Raise Them Normal — English edition book cover" />
     </div>
     <div class="hero-badge ar">صدر حديثاً ✦ النسختين في طلب واحد</div>
     <div class="hero-badge en">New Release ✦ Both Editions, One Price</div>
-    <h1 class="ar">ربيهم <span>عادي</span></h1>
-    <h1 class="en">Raise Them <span>Normal</span></h1>
+    <h1 class="ar">ربّوهم بشكل طبيعي</h1>
+    <h1 class="en">Raise Them Normal</h1>
     <p class="ar">من تجربة حياة حقيقية — دليل عملي لكل أم وأب عندهم طفل فاقد للبصر يريدون له حياة كاملة.</p>
     <p class="en">From a life lived from the inside — a practical guide for every parent of a blind child who wants them to live a full life.</p>
     <div class="hero-cta-group">
@@ -223,17 +223,20 @@
         <p class="en">I graduated in digital marketing, worked with Vodafone on a smartwatch for the blind, and I wrote this from a life lived from the inside — not from books.</p>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-number">+١م</span>
+            <span class="stat-number ar">مليون</span>
+            <span class="stat-number en">1M+</span>
             <span class="stat-label ar">متابع</span>
             <span class="stat-label en">Followers</span>
           </div>
           <div class="stat">
-            <span class="stat-number">١٣</span>
+            <span class="stat-number ar">١٣</span>
+            <span class="stat-number en">13</span>
             <span class="stat-label ar">فصل</span>
             <span class="stat-label en">Chapters</span>
           </div>
           <div class="stat">
-            <span class="stat-number">٢٥+</span>
+            <span class="stat-number ar">٢٥+</span>
+            <span class="stat-number en">25+</span>
             <span class="stat-label ar">سنة خبرة</span>
             <span class="stat-label en">Years lived</span>
           </div>
@@ -257,19 +260,19 @@
     <p class="lead ar">مش مجرد نصايح — ده ما اتعلمته من حياتي الفعلية، مكتوب بصدق لكل أهل طفل فاقد للبصر.</p>
     <p class="lead en">Not just advice — what I actually learned from living it, written honestly for every parent of a blind child.</p>
     <div class="chapters-grid">
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الأول</div><div class="chapter-num en">Chapter 1</div><div class="chapter-title ar">اليوم اللي عرفتوا فيه</div><div class="chapter-title en">The Day You Found Out</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التاني</div><div class="chapter-num en">Chapter 2</div><div class="chapter-title ar">الغلطة الأكبر</div><div class="chapter-title en">The Biggest Mistake</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التالت</div><div class="chapter-num en">Chapter 3</div><div class="chapter-title ar">ربيهم عادي</div><div class="chapter-title en">Raise Them Normal</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الرابع</div><div class="chapter-num en">Chapter 4</div><div class="chapter-title ar">مرحلة مرحلة</div><div class="chapter-title en">Age by Age</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الخامس</div><div class="chapter-num en">Chapter 5</div><div class="chapter-title ar">المدرسة والجامعة والحقوق</div><div class="chapter-title en">School, University & Rights</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل السادس</div><div class="chapter-num en">Chapter 6</div><div class="chapter-title ar">تفكير الواحد فاقد البصر</div><div class="chapter-title en">The Mind of a Blind Person</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل السابع</div><div class="chapter-num en">Chapter 7</div><div class="chapter-title ar">العالم من بره</div><div class="chapter-title en">The World Outside</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التامن</div><div class="chapter-num en">Chapter 8</div><div class="chapter-title ar">التكنولوجيا</div><div class="chapter-title en">Technology</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التاسع</div><div class="chapter-num en">Chapter 9</div><div class="chapter-title ar">الكلام الصعب</div><div class="chapter-title en">The Hard Conversation</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل العاشر</div><div class="chapter-num en">Chapter 10</div><div class="chapter-title ar">اللي العالم غلط فيه</div><div class="chapter-title en">What the World Gets Wrong</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الحادي عشر</div><div class="chapter-num en">Chapter 11</div><div class="chapter-title ar">الشغل والمستقبل</div><div class="chapter-title en">Careers & Future</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التاني عشر</div><div class="chapter-num en">Chapter 12</div><div class="chapter-title ar">الأخوات</div><div class="chapter-title en">Siblings</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التالت عشر</div><div class="chapter-num en">Chapter 13</div><div class="chapter-title ar">الجمال والفرحة والحياة اللي محدش بيحكيها</div><div class="chapter-title en">Beauty, Joy & The Life Nobody Tells You About</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الأول</div><div class="chapter-num en">Chapter 1</div><div class="chapter-title ar">اليوم اللي عرفت فيه</div><div class="chapter-title en">The Day You Found Out</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الثاني</div><div class="chapter-num en">Chapter 2</div><div class="chapter-title ar">أكبر غلطة</div><div class="chapter-title en">The Biggest Mistake</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الثالث</div><div class="chapter-num en">Chapter 3</div><div class="chapter-title ar">ربّوهم بشكل طبيعي</div><div class="chapter-title en">Raise Them Normal</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الرابع</div><div class="chapter-num en">Chapter 4</div><div class="chapter-title ar">مرحلة بمرحلة</div><div class="chapter-title en">Age by Age</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الخامس</div><div class="chapter-num en">Chapter 5</div><div class="chapter-title ar">المدرسة، الجامعة، والدفاع عن حقوقك</div><div class="chapter-title en">School, University &amp; Fighting for Rights</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل السادس</div><div class="chapter-num en">Chapter 6</div><div class="chapter-title ar">طريقة تفكير الشخص الكفيف</div><div class="chapter-title en">The Mind of a Blind Person</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل السابع</div><div class="chapter-num en">Chapter 7</div><div class="chapter-title ar">العالم خارج البيت</div><div class="chapter-title en">The World Outside</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الثامن</div><div class="chapter-num en">Chapter 8</div><div class="chapter-title ar">التكنولوجيا: الأدوات اللي غيّرت كل شيء</div><div class="chapter-title en">Technology: The Tools That Change Everything</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل التاسع</div><div class="chapter-num en">Chapter 9</div><div class="chapter-title ar">الحوار</div><div class="chapter-title en">The Conversation</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل العاشر</div><div class="chapter-num en">Chapter 10</div><div class="chapter-title ar">الأشياء التي يفهمها العالم بشكل خاطئ</div><div class="chapter-title en">What the World Gets Wrong</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الحادي عشر</div><div class="chapter-num en">Chapter 11</div><div class="chapter-title ar">العمل والمستقبل</div><div class="chapter-title en">Careers: What Is Actually Possible</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الثاني عشر</div><div class="chapter-num en">Chapter 12</div><div class="chapter-title ar">كلمة للإخوات</div><div class="chapter-title en">A Word for Siblings</div></div>
+      <div class="chapter-card"><div class="chapter-num ar">الفصل الثالث عشر</div><div class="chapter-num en">Chapter 13</div><div class="chapter-title ar">الجمال والفرح والحياة اللي محدش بيحكي لك عنها</div><div class="chapter-title en">Beauty, Joy &amp; The Life Nobody Tells You About</div></div>
     </div>
   </div>
 </section>
@@ -298,8 +301,10 @@
         <div class="pricing-badge en">🎁 Arabic Edition + English Edition</div>
 
         <div class="pricing-langs" style="margin-top:20px;">
-          <span class="pricing-lang-pill">🇪🇬 ربيهم عادي</span>
-          <span class="pricing-lang-pill">🌍 Raise Them Normal</span>
+          <span class="pricing-lang-pill ar">🇪🇬 النسخة العربية</span>
+          <span class="pricing-lang-pill ar">🌍 النسخة الإنجليزية</span>
+          <span class="pricing-lang-pill en">🇪🇬 Arabic Edition</span>
+          <span class="pricing-lang-pill en">🌍 English Edition</span>
         </div>
 
         <div class="pricing-title ar">الكتاب كامل — النسختين</div>
@@ -407,7 +412,7 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <img src="assets/book-logo.png" class="footer-logo" alt="ربيهم عادي — Raise Them Normal" />
+  <img src="assets/book-logo.png" class="footer-logo" alt="ربّوهم بشكل طبيعي — Raise Them Normal" />
   <p class="ar">كُتِب بـ <strong>أحمد تركي</strong> — صانع محتوى ومليون متابع ❤️</p>
   <p class="en">Written by <strong>Ahmed Torky</strong> — Content Creator, 1M+ Followers ❤️</p>
   <p style="margin-top:8px;font-size:.72rem;" class="ar">"اشتغل بصمت. خلي نجاحك يتكلم."</p>
@@ -441,7 +446,7 @@
 
 <!-- ══ WHATSAPP FLOAT BUTTON ══ -->
 <!-- Replace PHONE_NUMBER with your full number e.g. 201XXXXXXXXX (no + sign) -->
-<a href="https://wa.me/201068000080?text=مرحباً%20أحمد%2C%20عندي%20سؤال%20عن%20كتاب%20ربيهم%20عادي"
+<a href="https://wa.me/201068000080?text=مرحباً%20أحمد%2C%20عندي%20سؤال%20عن%20كتاب%20ربّوهم%20بشكل%20طبيعي"
    class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <i class="fab fa-whatsapp"></i>
   <span class="ar">تواصل على WhatsApp</span>
@@ -465,3 +470,4 @@ function toggleFaq(btn){
 </script>
 </body>
 </html>
+                                                           

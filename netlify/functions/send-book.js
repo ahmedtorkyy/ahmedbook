@@ -69,11 +69,11 @@ exports.handler = async (event) => {
 <style>
   body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 24px 16px; }
   .wrap { max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e4ea; }
-  .header { background: #1A4E7A; padding: 32px 36px; text-align: center; }
+  .header { background: #0d0d0d; padding: 32px 36px; text-align: center; }
   .header-title { color: #D4AF37; font-size: 1.5rem; font-weight: bold; margin: 0 0 4px; }
   .header-sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin: 0; }
   .body { padding: 36px; color: #1a1a2e; font-size: 0.95rem; line-height: 1.8; }
-  .salutation { font-size: 1rem; font-weight: bold; margin-bottom: 16px; color: #1A4E7A; }
+  .salutation { font-size: 1rem; font-weight: bold; margin-bottom: 16px; color: #0d0d0d; }
   .paragraph { margin-bottom: 16px; }
   .attachments { background: #f8f9fb; border: 1px solid #e0e4ea; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
   .attachments-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7a8d; margin-bottom: 12px; font-weight: bold; }
@@ -83,23 +83,27 @@ exports.handler = async (event) => {
   .divider { border: none; border-top: 1px solid #e8eaed; margin: 28px 0; }
   .en-section { direction: ltr; text-align: left; color: #3a3a4a; font-size: 0.9rem; line-height: 1.8; }
   .signature { margin-top: 24px; font-size: 0.88rem; color: #3a3a4a; }
-  .signature-name { font-weight: bold; color: #1A4E7A; font-size: 1rem; }
+  .signature-name { font-weight: bold; color: #0d0d0d; font-size: 1rem; }
   .footer { background: #f0f2f5; border-top: 1px solid #e0e4ea; padding: 18px 36px; text-align: center; font-size: 0.75rem; color: #8a94a0; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="header">
-    <p class="header-title">ربيهم عادي — Raise Them Normal</p>
+    <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 18px;"><tr>
+      <td style="padding:0 7px;"><img src="https://ahmedtorkyy.netlify.app/books/cover_arabic.png" width="104" alt="ربّوهم بشكل طبيعي" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.55);"></td>
+      <td style="padding:0 7px;"><img src="https://ahmedtorkyy.netlify.app/books/cover_english.png" width="104" alt="Raise Them Normal" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.55);"></td>
+    </tr></table>
+    <p class="header-title">ربّوهم بشكل طبيعي — Raise Them Normal</p>
     <p class="header-sub">أحمد تركي · Ahmed Torky</p>
   </div>
   <div class="body">
     <p class="salutation">السادة الكرام،</p>
-    <p class="paragraph">نشكركم على اقتنائكم كتاب <strong>ربيهم عادي</strong>. يسعدنا إرسال نسختَي الكتاب مرفقتَين بهذا البريد الإلكتروني، وهما النسخة العربية والنسخة الإنجليزية.</p>
+    <p class="paragraph">نشكركم على اقتنائكم كتاب <strong>ربّوهم بشكل طبيعي</strong>. يسعدنا إرسال نسختَي الكتاب مرفقتَين بهذا البريد الإلكتروني، وهما النسخة العربية والنسخة الإنجليزية.</p>
     <p class="paragraph">يمكن فتح الملفات باستخدام Microsoft Word أو Google Docs على أي جهاز، وهي متوافقة تمامًا مع برامج قراءة الشاشة كـ NVDA وVoiceOver وTalkBack.</p>
     <div class="attachments">
       <p class="attachments-title">الملفات المرفقة</p>
-      <div class="attachment-item"><span>📘</span><span>ربيهم_عادي_أحمد_تركي.docx — النسخة العربية</span></div>
+      <div class="attachment-item"><span>📘</span><span>ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — النسخة العربية</span></div>
       <div class="attachment-item"><span>📗</span><span>Raise_Them_Normal_Ahmed_Torky.docx — النسخة الإنجليزية</span></div>
     </div>
     <div class="help">في حال وجود أي استفسار أو مشكلة تقنية، يُرجى التواصل عبر البريد الإلكتروني: ahmedassem.eltorky@gmail.com</div>
@@ -107,7 +111,7 @@ exports.handler = async (event) => {
     <div class="signature">
       <p>مع خالص التقدير،</p>
       <p class="signature-name">أحمد تركي</p>
-      <p style="color:#6b7a8d;font-size:0.82rem;">مؤلف كتاب ربيهم عادي</p>
+      <p style="color:#6b7a8d;font-size:0.82rem;">مؤلف كتاب ربّوهم بشكل طبيعي</p>
     </div>
     <hr class="divider" />
     <div class="en-section">
@@ -116,7 +120,7 @@ exports.handler = async (event) => {
       <p class="paragraph">Open with Microsoft Word or Google Docs on any device. Fully compatible with NVDA, VoiceOver, and TalkBack.</p>
       <div class="attachments">
         <p class="attachments-title">Attached Files</p>
-        <div class="attachment-item"><span>📘</span><span>ربيهم_عادي_أحمد_تركي.docx — Arabic Edition</span></div>
+        <div class="attachment-item"><span>📘</span><span>ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — Arabic Edition</span></div>
         <div class="attachment-item"><span>📗</span><span>Raise_Them_Normal_Ahmed_Torky.docx — English Edition</span></div>
       </div>
       <div class="help" style="border-right:none;border-left:3px solid #D4AF37;">For any questions: ahmedassem.eltorky@gmail.com</div>
@@ -141,13 +145,13 @@ exports.handler = async (event) => {
     });
 
     await transporter.sendMail({
-      from: `"أحمد تركي | ربيهم عادي" <${GMAIL_USER}>`,
+      from: `"أحمد تركي | ربّوهم بشكل طبيعي" <${GMAIL_USER}>`,
       to: email,
-      subject: 'ربيهم عادي — Raise Them Normal | كتابك بالمرفقات',
+      subject: 'ربّوهم بشكل طبيعي — Raise Them Normal | كتابك بالمرفقات',
       html: emailHtml,
       attachments: [
         {
-          filename: 'ربيهم_عادي_أحمد_تركي.docx',
+          filename: 'ربّوهم_بشكل_طبيعي_أحمد_تركي.docx',
           content: arabicBuffer,
           contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         },
