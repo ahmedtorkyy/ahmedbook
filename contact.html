@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تواصل معنا — ربيهم عادي | Contact — Raise Them Normal</title>
+  <title>تواصل معنا — ربّوهم بشكل طبيعي | Contact — Raise Them Normal</title>
+  <script>try{var l=localStorage.getItem('rtn_lang');if(l==='en'){document.documentElement.dir='ltr';document.documentElement.lang='en';}else if(l==='ar'){document.documentElement.dir='rtl';document.documentElement.lang='ar';}}catch(e){}</script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- favicon: add books/favicon.png when ready -->
+  <link rel="icon" type="image/png" href="books/favicon.png" />
+  <link rel="apple-touch-icon" href="books/apple-touch-icon.png" />
   <style>
-    :root{--navy:#1A4E7A;--navy-dark:#0f2f4a;--gold:#D4AF37;--gold-light:#f0d060;--white:#fff;--light:#f8f9fb;--muted:#6b7a8d;}
+    :root{--ink:#1a1a1a;--muted:#5a5a5a;--accent:#111111;--line:#ececec;--soft:#f7f7f7;--footer:#0f0f0f;}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Cairo',sans-serif;background:var(--light);color:#1a1a2e;min-height:100vh;display:flex;flex-direction:column;}
+    body{font-family:'Cairo',sans-serif;background:#ffffff;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;line-height:1.7;}
+    img{max-width:100%;display:block;}
     a{text-decoration:none;color:inherit;}
-    .ar{display:block;}.en{display:none;}
-    html[dir="ltr"] .ar{display:none;}html[dir="ltr"] .en{display:block;}
+
+    /* Language toggle — hide only the inactive language */
+    [dir="rtl"] .en{display:none !important;}
+    [dir="ltr"] .ar{display:none !important;}
 
     /* Nav */
-    nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3);}
-    .nav-logo{color:var(--gold);font-size:1.1rem;font-weight:900;}
+    nav{background:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 6px rgba(0,0,0,.08);border-bottom:1px solid var(--line);}
+    .nav-logo{color:var(--accent);font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:10px;}
+    .nav-logo-icon{width:34px;height:34px;border-radius:9px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2);}
     .nav-right{display:flex;align-items:center;gap:14px;}
-    .lang-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
-    .lang-btn:hover{background:var(--gold);color:var(--navy);}
-    .nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;transition:color .2s;}
-    .nav-back:hover{color:var(--white);}
+    .lang-btn{background:transparent;border:1.5px solid var(--accent);color:var(--accent);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
+    .lang-btn:hover{background:var(--accent);color:#fff;}
+    .nav-back{color:#555;font-size:.88rem;display:flex;align-items:center;gap:6px;transition:color .2s;}
+    .nav-back:hover{color:var(--accent);}
 
     /* Hero strip */
-    .page-hero{background:linear-gradient(135deg,var(--navy-dark),var(--navy));color:var(--white);padding:48px 24px;text-align:center;}
-    .page-hero .tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;padding:3px 14px;border-radius:20px;margin-bottom:12px;}
+    .page-hero{background:linear-gradient(180deg,#ffffff,#f5f5f5);color:var(--ink);padding:48px 24px;text-align:center;border-bottom:1px solid var(--line);}
+    .page-hero .tag{display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;padding:3px 14px;border-radius:20px;margin-bottom:12px;}
     .page-hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin-bottom:8px;}
-    .page-hero p{color:rgba(255,255,255,.75);font-size:.95rem;}
+    .page-hero p{color:var(--muted);font-size:.95rem;}
 
     /* Main content */
     main{flex:1;padding:48px 24px;}
@@ -37,41 +43,42 @@
     /* Contact cards */
     .contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px;}
     @media(max-width:540px){.contact-cards{grid-template-columns:1fr;}}
-    .contact-card{background:var(--white);border-radius:16px;padding:28px 24px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.07);border:2px solid transparent;transition:all .25s;}
-    .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.1);}
+    .contact-card{background:#fff;border-radius:16px;padding:28px 24px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.06);border:2px solid var(--line);transition:all .25s;}
+    .contact-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.1);}
     .contact-icon{font-size:2.2rem;margin-bottom:14px;}
     .contact-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;}
-    .contact-value{font-size:.95rem;font-weight:700;color:var(--navy);word-break:break-all;}
+    .contact-value{font-size:.95rem;font-weight:700;color:var(--accent);word-break:break-all;}
     .contact-note{font-size:.78rem;color:var(--muted);margin-top:6px;}
     .contact-card a{display:block;}
-
-    /* WhatsApp card special */
-    .contact-card.whatsapp{border-color:#e8fdf0;}
-    .contact-card.whatsapp .contact-value{color:#25D366;}
-    .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:var(--white);padding:10px 22px;border-radius:24px;font-family:inherit;font-size:.88rem;font-weight:700;margin-top:14px;transition:all .2s;}
-    .whatsapp-btn:hover{background:#1fbe5a;transform:translateY(-2px);}
+    .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:10px 22px;border-radius:24px;font-family:inherit;font-size:.88rem;font-weight:700;margin-top:14px;transition:all .2s;}
+    .whatsapp-btn:hover{background:#333;transform:translateY(-2px);}
 
     /* Info box */
-    .info-box{background:var(--white);border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:32px;}
-    .info-box h2{font-size:1.05rem;font-weight:900;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .info-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.05);margin-bottom:32px;}
+    .info-box h2{font-size:1.05rem;font-weight:900;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
     .info-box p{font-size:.9rem;color:var(--muted);line-height:1.8;}
-    .divider{border:none;border-top:1px solid #f0f0f0;margin:16px 0;}
+    .divider{border:none;border-top:1px solid #eee;margin:16px 0;}
 
     /* Response time badge */
-    .response-badge{display:inline-flex;align-items:center;gap:6px;background:#f0fdf4;border:1px solid #86efac;color:#166534;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:700;margin-top:12px;}
+    .response-badge{display:inline-flex;align-items:center;gap:6px;background:#f0f0f0;border:1px solid #ddd;color:#333;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:700;margin-top:12px;}
+
+    /* Social pills */
+    .social-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f7f7;border:1px solid #e5e7eb;padding:8px 16px;border-radius:24px;font-size:.85rem;font-weight:700;color:var(--accent);transition:all .2s;}
+    .social-pill:hover{border-color:var(--accent);}
 
     /* Footer */
-    footer{background:var(--navy-dark);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:.78rem;}
-    footer a{color:var(--gold);margin:0 8px;}
+    footer{background:var(--footer);color:rgba(255,255,255,.6);text-align:center;padding:24px;font-size:.78rem;}
+    footer a{color:#fff;margin:0 8px;}
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">
-    <span class="ar">ربيهم عادي</span>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo-icon.png" class="nav-logo-icon" alt="" />
+    <span class="ar">ربّوهم بشكل طبيعي</span>
     <span class="en">Raise Them Normal</span>
-  </div>
+  </a>
   <div class="nav-right">
     <button class="lang-btn" onclick="toggleLang()">
       <span class="ar">English</span>
@@ -108,7 +115,7 @@
         <div class="contact-label en">Email</div>
         <div class="contact-value">ahmedassem.eltorky@gmail.com</div>
         <p class="contact-note ar">للاستفسارات والدعم الفني</p>
-        <p class="contact-note en">For enquiries & technical support</p>
+        <p class="contact-note en">For enquiries &amp; technical support</p>
         <div class="response-badge" style="margin-top:12px;">
           <span>⏱</span>
           <span class="ar">رد خلال 24 ساعة</span>
@@ -123,8 +130,8 @@
         <div class="contact-label en">WhatsApp</div>
         <div class="contact-value">+20 106 800 0080</div>
         <p class="contact-note ar">للردود السريعة والمشاكل الطارئة</p>
-        <p class="contact-note en">For fast replies & urgent issues</p>
-        <a href="https://wa.me/201068000080?text=مرحباً%20أحمد%2C%20عندي%20استفسار%20عن%20كتاب%20ربيهم%20عادي" target="_blank" rel="noopener">
+        <p class="contact-note en">For fast replies &amp; urgent issues</p>
+        <a href="https://wa.me/201068000080?text=مرحباً%20أحمد%2C%20عندي%20استفسار%20عن%20كتاب%20ربّوهم%20بشكل%20طبيعي" target="_blank" rel="noopener">
           <div class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i>
             <span class="ar">ابدأ محادثة</span>
@@ -156,10 +163,10 @@
       </p>
       <hr class="divider" />
       <p class="ar" style="font-size:.82rem;color:var(--muted);">
-        📌 تأكد من الاطلاع على <a href="refund.html" style="color:var(--navy);font-weight:700;">سياسة الاسترداد</a> لو في مشكلة في الدفع.
+        📌 تأكد من الاطلاع على <a href="refund.html" style="color:var(--accent);font-weight:700;">سياسة الاسترداد</a> لو في مشكلة في الدفع.
       </p>
       <p class="en" style="font-size:.82rem;color:var(--muted);">
-        📌 Please review our <a href="refund.html" style="color:var(--navy);font-weight:700;">Refund Policy</a> if you have a payment-related issue.
+        📌 Please review our <a href="refund.html" style="color:var(--accent);font-weight:700;">Refund Policy</a> if you have a payment-related issue.
       </p>
     </div>
 
@@ -171,16 +178,16 @@
         <span class="en">Follow Ahmed on Social Media</span>
       </h2>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
-        <a href="https://www.tiktok.com/@torkyy99" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--light);border:1px solid #e5e7eb;padding:8px 16px;border-radius:24px;font-size:.85rem;font-weight:700;color:var(--navy);transition:all .2s;">
+        <a href="https://www.tiktok.com/@torkyy99" target="_blank" rel="noopener" class="social-pill">
           <i class="fab fa-tiktok"></i> TikTok · 400K
         </a>
-        <a href="https://www.instagram.com/torkyy99/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--light);border:1px solid #e5e7eb;padding:8px 16px;border-radius:24px;font-size:.85rem;font-weight:700;color:var(--navy);transition:all .2s;">
+        <a href="https://www.instagram.com/torkyy99/" target="_blank" rel="noopener" class="social-pill">
           <i class="fab fa-instagram"></i> Instagram · 211K
         </a>
-        <a href="https://www.facebook.com/share/1DUPhaERVr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--light);border:1px solid #e5e7eb;padding:8px 16px;border-radius:24px;font-size:.85rem;font-weight:700;color:var(--navy);transition:all .2s;">
+        <a href="https://www.facebook.com/share/1DUPhaERVr/" target="_blank" rel="noopener" class="social-pill">
           <i class="fab fa-facebook"></i> Facebook · 435K
         </a>
-        <a href="https://youtube.com/@torky1999" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--light);border:1px solid #e5e7eb;padding:8px 16px;border-radius:24px;font-size:.85rem;font-weight:700;color:var(--navy);transition:all .2s;">
+        <a href="https://youtube.com/@torky1999" target="_blank" rel="noopener" class="social-pill">
           <i class="fab fa-youtube"></i> YouTube
         </a>
       </div>
@@ -190,14 +197,15 @@
 </main>
 
 <footer>
-  <p>© 2026 Ahmed Torky · <a href="index.html">ربيهم عادي</a> · <a href="refund.html">سياسة الاسترداد / Refund Policy</a></p>
+  <p>© 2026 Ahmed Torky · <a href="index.html"><span class="ar">ربّوهم بشكل طبيعي</span><span class="en">Raise Them Normal</span></a> · <a href="refund.html"><span class="ar">سياسة الاسترداد</span><span class="en">Refund Policy</span></a></p>
 </footer>
 
 <script>
 function toggleLang(){
-  const h = document.documentElement;
-  if(h.dir === 'rtl'){ h.dir = 'ltr'; h.lang = 'en'; }
-  else { h.dir = 'rtl'; h.lang = 'ar'; }
+  var h = document.documentElement;
+  var next = (h.dir === 'rtl') ? 'en' : 'ar';
+  if(next === 'en'){ h.dir = 'ltr'; h.lang = 'en'; } else { h.dir = 'rtl'; h.lang = 'ar'; }
+  try{ localStorage.setItem('rtn_lang', next); }catch(e){}
 }
 </script>
 </body>
