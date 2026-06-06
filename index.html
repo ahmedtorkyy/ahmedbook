@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ربيهم عادي — أحمد تركي | Raise Them Normal — Ahmed Torky</title>
-  <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — تنزيل فوري." />
+  <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
   <!-- Open Graph -->
   <meta property="og:title" content="ربيهم عادي — أحمد تركي" />
-  <meta property="og:description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — تنزيل فوري." />
+  <meta property="og:description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
   <meta property="og:image" content="https://ahmedtorkyy.netlify.app/books/cover_arabic.png" />
   <meta property="og:url" content="https://ahmedtorkyy.netlify.app" />
   <meta property="og:type" content="website" />
@@ -15,7 +15,8 @@
   <meta name="twitter:title" content="Raise Them Normal — Ahmed Torky" />
   <meta name="twitter:description" content="A guide for every parent of a blind child. From lived experience. 13 chapters — instant download." />
   <meta name="twitter:image" content="https://ahmedtorkyy.netlify.app/books/cover_english.png" />
-  <link rel="icon" type="image/png" href="books/cover_arabic.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="books/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="books/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -33,7 +34,11 @@
 
     /* ── NAV ── */
     nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
-    .nav-logo{color:var(--gold);font-size:1.15rem;font-weight:900;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{width:36px;height:36px;border-radius:50%;}
+    .nav-logo-text{display:flex;flex-direction:column;line-height:1.2;}
+    .nav-logo-ar{color:var(--gold);font-size:1.05rem;font-weight:900;}
+    .nav-logo-en{color:rgba(255,255,255,.6);font-size:.65rem;font-weight:600;letter-spacing:.5px;}
     .nav-right{display:flex;align-items:center;gap:14px;}
     .lang-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:0.85rem;font-weight:600;transition:all .2s;}
     .lang-btn:hover{background:var(--gold);color:var(--navy);}
@@ -156,10 +161,15 @@
 
 <!-- ══ NAV ══ -->
 <nav>
-  <div class="nav-logo">
-    <span class="ar">ربيهم عادي</span>
-    <span class="en">Raise Them Normal</span>
-  </div>
+  <a href="#" class="nav-logo">
+    <img src="books/logo-icon-sm.png" alt="ربيهم عادي logo" />
+    <div class="nav-logo-text">
+      <span class="nav-logo-ar ar">ربيهم عادي</span>
+      <span class="nav-logo-ar en">Raise Them Normal</span>
+      <span class="nav-logo-en ar">Raise Them Normal</span>
+      <span class="nav-logo-en en">أحمد تركي</span>
+    </div>
+  </a>
   <div class="nav-right">
     <button class="lang-btn" onclick="toggleLang()">
       <span class="ar">English</span>
@@ -287,8 +297,8 @@
     <h2 class="ar">النسختين — بسعر واحد</h2>
     <h2 class="en">Both Editions — One Price</h2>
     <hr class="divider center" />
-    <p class="lead ar" style="margin:0 auto 36px;">اشتري مرة واحدة — تنزيل فوري للنسخة العربية والإنجليزية معاً.</p>
-    <p class="lead en" style="margin:0 auto 36px;">Buy once — instant download for both the Arabic and English editions.</p>
+    <p class="lead ar" style="margin:0 auto 36px;">اشتري مرة واحدة — النسختين يوصلوك على إيميلك كملفات مرفقة فوراً.</p>
+    <p class="lead en" style="margin:0 auto 36px;">Buy once — both editions sent to your email as attachments immediately.</p>
 
     <div class="pricing-single">
       <div class="pricing-card">
@@ -312,24 +322,24 @@
           <li><span class="ar">النسخة العربية الكاملة — بالعامية المصرية</span><span class="en">Full Arabic edition — Egyptian dialect</span></li>
           <li><span class="ar">النسخة الإنجليزية الكاملة — للأسر في الخارج</span><span class="en">Full English edition — for families abroad</span></li>
           <li><span class="ar">١٣ فصل في كل نسخة</span><span class="en">13 chapters in each edition</span></li>
-          <li><span class="ar">تنزيل فوري بعد الدفع — على أي جهاز</span><span class="en">Instant download after payment — any device</span></li>
+          <li><span class="ar">يوصلك على إيميلك فوراً بعد الدفع — كملفات مرفقة</span><span class="en">Sent to your email immediately after payment — as attachments</span></li>
           <li><span class="ar">صيغة Word — تشتغل مع كل قارئات الشاشة</span><span class="en">Word format — works with all screen readers</span></li>
         </ul>
 
-        <a href="PAYMOB_LINK_HERE" class="buy-btn ar" target="_blank">اشتري دلوقتي — ١٠٩ جنيه</a>
-        <a href="PAYMOB_LINK_HERE" class="buy-btn en" target="_blank">Buy Now — 109 EGP</a>
+        <a href="KASHIER_LINK_HERE" class="buy-btn ar" target="_blank">اشتري دلوقتي — ١٠٩ جنيه</a>
+        <a href="KASHIER_LINK_HERE" class="buy-btn en" target="_blank">Buy Now — 109 EGP</a>
 
-        <p class="paymob-note ar">بتدفع بـ Paymob ✦ فيزا / ماستر / فوري / Instapay / VCash</p>
-        <p class="paymob-note en">Pay via Paymob ✦ Visa / Mastercard / Fawry / Instapay / VCash</p>
+        <p class="paymob-note ar">فيزا ✦ ماستركارد ✦ ميزة ✦ فوري ✦ Vodafone Cash</p>
+        <p class="paymob-note en">Visa ✦ Mastercard ✦ Meeza ✦ Fawry ✦ Vodafone Cash</p>
         <div class="pay-icons">
           <span class="pay-icon">Visa</span>
           <span class="pay-icon">Mastercard</span>
+          <span class="pay-icon">Meeza</span>
           <span class="pay-icon">Fawry</span>
-          <span class="pay-icon">Instapay</span>
-          <span class="pay-icon">VCash</span>
+          <span class="pay-icon">VodafoneCash</span>
         </div>
-        <p class="secure-note ar">🔒 الدفع آمن ومشفر عبر Paymob. بعد الدفع هتنزل النسختين على طول.</p>
-        <p class="secure-note en">🔒 Secure payment via Paymob. Both editions download immediately after payment.</p>
+        <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع الكتابين هيوصلوك على إيميلك فوراً.</p>
+        <p class="secure-note en">🔒 Secure encrypted payment — both editions sent to your email immediately after.</p>
       </div>
     </div>
   </div>
@@ -350,8 +360,8 @@
           <span class="icon">+</span>
         </button>
         <div class="faq-a">
-          <p class="ar">بعد إتمام الدفع بنجاح، هتتحول لصفحة تنزيل فوري. هتلاقي زرارين — واحد للنسخة العربية وواحد للإنجليزية. هتقدر تنزلهم على أي جهاز.</p>
-          <p class="en">After successful payment, you'll be redirected to an instant download page with two buttons — one for the Arabic edition and one for English. Download on any device.</p>
+          <p class="ar">بعد إتمام الدفع بنجاح، هتتحول لصفحة بتطلب منك إيميلك. أدخل إيميلك وهيوصلك الكتابين كملفات مرفقة على طول — على أي جهاز.</p>
+          <p class="en">After successful payment, you'll be redirected to a page asking for your email. Enter your email and both editions will be sent to you as attachments immediately — on any device.</p>
         </div>
       </div>
 
