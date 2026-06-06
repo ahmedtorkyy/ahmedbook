@@ -1,5 +1,9 @@
 # Netlify configuration for Raise Them Normal / ربيهم عادي
 
+[build]
+  command = "npm install"
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"

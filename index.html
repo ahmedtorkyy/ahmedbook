@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ربيهم عادي — أحمد تركي | Raise Them Normal — Ahmed Torky</title>
+  <title>Raise Them Normal — Ahmed Torky | ربيهم عادي — أحمد تركي</title>
   <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
   <!-- Open Graph -->
   <meta property="og:title" content="ربيهم عادي — أحمد تركي" />
@@ -15,8 +15,8 @@
   <meta name="twitter:title" content="Raise Them Normal — Ahmed Torky" />
   <meta name="twitter:description" content="A guide for every parent of a blind child. From lived experience. 13 chapters — instant download." />
   <meta name="twitter:image" content="https://ahmedtorkyy.netlify.app/books/cover_english.png" />
-  <link rel="icon" type="image/png" sizes="64x64" href="books/favicon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="books/favicon.png" />
+  <link rel="icon" type="image/png" href="books/favicon.png" />
+  <link rel="apple-touch-icon" href="books/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -34,11 +34,8 @@
 
     /* ── NAV ── */
     nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .nav-logo img{width:36px;height:36px;border-radius:50%;}
-    .nav-logo-text{display:flex;flex-direction:column;line-height:1.2;}
-    .nav-logo-ar{color:var(--gold);font-size:1.05rem;font-weight:900;}
-    .nav-logo-en{color:rgba(255,255,255,.6);font-size:.65rem;font-weight:600;letter-spacing:.5px;}
+    .nav-logo{color:var(--gold);font-size:1.15rem;font-weight:900;display:flex;align-items:center;gap:10px;}
+    .nav-logo-icon{width:38px;height:38px;border-radius:10px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.35);}
     .nav-right{display:flex;align-items:center;gap:14px;}
     .lang-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:0.85rem;font-weight:600;transition:all .2s;}
     .lang-btn:hover{background:var(--gold);color:var(--navy);}
@@ -51,6 +48,7 @@
     .hero-covers{display:flex;justify-content:center;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
     .hero-cover{width:170px;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5);transition:transform .3s;}
     .hero-cover:hover{transform:scale(1.04) rotate(-1deg);}
+    .hero-cover-placeholder{width:170px;height:240px;border-radius:10px;background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.85rem;font-weight:700;}
     .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.8rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:14px;}
     .hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;line-height:1.2;margin-bottom:14px;}
     .hero h1 span{color:var(--gold);}
@@ -85,6 +83,8 @@
     .author-photo-box{border-radius:16px;overflow:hidden;height:320px;position:relative;box-shadow:0 12px 40px rgba(0,0,0,0.18);}
     .author-photo-box img{width:100%;height:100%;object-fit:cover;object-position:top;}
     .author-photo-placeholder{background:linear-gradient(135deg,var(--navy) 0%,#2a6899 100%);border-radius:16px;height:320px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:rgba(255,255,255,.7);font-size:.85rem;}
+    .author-logo-box{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);border-radius:16px;height:320px;display:flex;align-items:center;justify-content:center;padding:32px;box-shadow:0 12px 40px rgba(0,0,0,0.18);}
+    .author-logo-box img{width:100%;max-width:300px;height:auto;}
     .big-icon{font-size:3rem;color:var(--gold);}
 
     /* ── CHAPTERS ── */
@@ -140,6 +140,7 @@
     /* ── FOOTER ── */
     footer{background:var(--navy-dark);color:rgba(255,255,255,.6);text-align:center;padding:48px 24px 36px;font-size:.82rem;}
     footer strong{color:var(--gold);}
+    .footer-logo{width:240px;max-width:72%;margin:0 auto 24px;display:block;opacity:.95;}
     .footer-social{display:flex;gap:12px;justify-content:center;margin:18px 0;flex-wrap:wrap;}
     .social-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);padding:8px 16px;border-radius:24px;font-size:.82rem;font-weight:600;transition:all .2s;}
     .social-btn:hover{background:rgba(255,255,255,.15);color:var(--white);border-color:rgba(255,255,255,.3);}
@@ -161,14 +162,10 @@
 
 <!-- ══ NAV ══ -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="books/logo-icon-sm.png" alt="ربيهم عادي logo" />
-    <div class="nav-logo-text">
-      <span class="nav-logo-ar ar">ربيهم عادي</span>
-      <span class="nav-logo-ar en">Raise Them Normal</span>
-      <span class="nav-logo-en ar">Raise Them Normal</span>
-      <span class="nav-logo-en en">أحمد تركي</span>
-    </div>
+  <a href="#" class="nav-logo" aria-label="ربيهم عادي — Raise Them Normal">
+    <img src="assets/logo-icon.png" class="nav-logo-icon" alt="" />
+    <span class="ar">ربيهم عادي</span>
+    <span class="en">Raise Them Normal</span>
   </a>
   <div class="nav-right">
     <button class="lang-btn" onclick="toggleLang()">
@@ -188,8 +185,8 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-covers">
-      <img src="books/cover_arabic.png"  alt="ربيهم عادي" class="hero-cover" />
-      <img src="books/cover_english.png" alt="Raise Them Normal" class="hero-cover" />
+      <img src="books/cover_arabic.png" class="hero-cover" alt="غلاف كتاب ربيهم عادي — النسخة العربية" />
+      <img src="books/cover_english.png" class="hero-cover" alt="Raise Them Normal — English edition book cover" />
     </div>
     <div class="hero-badge ar">صدر حديثاً ✦ النسختين في طلب واحد</div>
     <div class="hero-badge en">New Release ✦ Both Editions, One Price</div>
@@ -242,13 +239,8 @@
           </div>
         </div>
       </div>
-      <!-- PHOTO: replace the placeholder div below with your image -->
-      <!-- To add your photo: save it as "books/author.jpg" then swap the placeholder for:
-           <div class="author-photo-box"><img src="books/author.jpg" alt="Ahmed Torky" /></div> -->
-      <div class="author-photo-placeholder" id="author-photo-area">
-        <div class="big-icon">📸</div>
-        <span class="ar">الصورة قريباً</span>
-        <span class="en">Photo coming soon</span>
+      <div class="author-logo-box">
+        <img src="assets/torky-logo.png" alt="أحمد تركي — Ahmed Torky" />
       </div>
     </div>
   </div>
@@ -415,6 +407,7 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
+  <img src="assets/book-logo.png" class="footer-logo" alt="ربيهم عادي — Raise Them Normal" />
   <p class="ar">كُتِب بـ <strong>أحمد تركي</strong> — صانع محتوى ومليون متابع ❤️</p>
   <p class="en">Written by <strong>Ahmed Torky</strong> — Content Creator, 1M+ Followers ❤️</p>
   <p style="margin-top:8px;font-size:.72rem;" class="ar">"اشتغل بصمت. خلي نجاحك يتكلم."</p>

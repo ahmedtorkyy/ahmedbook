@@ -1,0 +1,7 @@
+# Test files — contain credentials, never push to GitHub
+test-send-email.js
+TEST_EMAIL.bat
+test-log.txt
+
+# Node modules
+node_modules/
