@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الاسترداد — ربيهم عادي | Refund Policy — Raise Them Normal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="books/cover_arabic.png" />
+  <style>
+    :root{--navy:#1A4E7A;--navy-dark:#0f2f4a;--gold:#D4AF37;--white:#fff;--light:#f8f9fb;--muted:#6b7a8d;--green:#16a34a;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Cairo',sans-serif;background:var(--light);color:#1a1a2e;min-height:100vh;display:flex;flex-direction:column;}
+    a{text-decoration:none;color:inherit;}
+    .ar{display:block;}.en{display:none;}
+    html[dir="ltr"] .ar{display:none;}html[dir="ltr"] .en{display:block;}
+
+    /* Nav */
+    nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3);}
+    .nav-logo{color:var(--gold);font-size:1.1rem;font-weight:900;}
+    .nav-right{display:flex;align-items:center;gap:14px;}
+    .lang-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;transition:all .2s;}
+    .lang-btn:hover{background:var(--gold);color:var(--navy);}
+    .nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;transition:color .2s;}
+    .nav-back:hover{color:var(--white);}
+
+    /* Hero */
+    .page-hero{background:linear-gradient(135deg,var(--navy-dark),var(--navy));color:var(--white);padding:48px 24px;text-align:center;}
+    .page-hero .tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;padding:3px 14px;border-radius:20px;margin-bottom:12px;}
+    .page-hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin-bottom:8px;}
+    .page-hero p{color:rgba(255,255,255,.75);font-size:.95rem;max-width:560px;margin:0 auto;}
+
+    /* Main */
+    main{flex:1;padding:48px 24px;}
+    .container{max-width:700px;margin:0 auto;}
+
+    /* Promise box (top) */
+    .promise-box{background:var(--white);border:3px solid #86efac;border-radius:16px;padding:32px;text-align:center;margin-bottom:32px;box-shadow:0 4px 20px rgba(22,163,74,.1);}
+    .promise-icon{font-size:3rem;margin-bottom:12px;}
+    .promise-title{font-size:1.2rem;font-weight:900;color:var(--green);margin-bottom:10px;}
+    .promise-text{font-size:.95rem;color:#1a1a2e;line-height:1.8;}
+    .promise-text strong{color:var(--green);}
+
+    /* Policy sections */
+    .policy-card{background:var(--white);border-radius:14px;padding:26px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+    .policy-card h2{font-size:1rem;font-weight:900;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .policy-card p, .policy-card li{font-size:.9rem;color:var(--muted);line-height:1.85;}
+    .policy-card ul{padding-right:18px;}
+    html[dir="ltr"] .policy-card ul{padding-right:0;padding-left:18px;}
+    .policy-card li{margin-bottom:8px;}
+    .policy-card li::marker{color:var(--gold);}
+
+    /* Highlight */
+    .highlight{background:#fdfaf0;border-right:4px solid var(--gold);padding:14px 18px;border-radius:8px;font-size:.88rem;color:#4a3c00;line-height:1.8;margin-top:14px;}
+    html[dir="ltr"] .highlight{border-right:none;border-left:4px solid var(--gold);}
+
+    /* Steps */
+    .steps{counter-reset:step;display:flex;flex-direction:column;gap:14px;margin-top:14px;}
+    .step{display:flex;gap:14px;align-items:flex-start;}
+    .step-num{background:var(--navy);color:var(--white);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+    .step-text{font-size:.9rem;color:var(--muted);line-height:1.75;}
+    .step-text strong{color:var(--navy);}
+
+    /* Contact CTA */
+    .cta-box{background:var(--navy);color:var(--white);border-radius:16px;padding:28px;text-align:center;margin-top:32px;}
+    .cta-box h2{font-size:1.1rem;font-weight:900;margin-bottom:10px;}
+    .cta-box p{color:rgba(255,255,255,.75);font-size:.88rem;margin-bottom:18px;}
+    .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:24px;font-family:inherit;font-size:.88rem;font-weight:700;transition:all .2s;}
+    .cta-btn.email{background:var(--white);color:var(--navy);}
+    .cta-btn.email:hover{background:#f0f0f0;}
+    .cta-btn.whatsapp{background:#25D366;color:var(--white);}
+    .cta-btn.whatsapp:hover{background:#1fbe5a;}
+
+    /* Footer */
+    footer{background:var(--navy-dark);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:.78rem;}
+    footer a{color:var(--gold);margin:0 8px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="ar">ربيهم عادي</span>
+    <span class="en">Raise Them Normal</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" onclick="toggleLang()">
+      <span class="ar">English</span>
+      <span class="en">عربي</span>
+    </button>
+    <a href="index.html" class="nav-back">
+      <i class="fas fa-arrow-right ar"></i>
+      <i class="fas fa-arrow-left en"></i>
+      <span class="ar">الرئيسية</span>
+      <span class="en">Home</span>
+    </a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="tag ar">سياسة الاسترداد</div>
+  <div class="tag en">Refund Policy</div>
+  <h1 class="ar">ضمان استرداد كامل</h1>
+  <h1 class="en">Full Refund Guarantee</h1>
+  <p class="ar">لو ما وصلكش الكتاب — بنرجعلك فلوسك كاملة. بدون أسئلة.</p>
+  <p class="en">If you don't receive the book — you get a full refund. No questions asked.</p>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- Main promise -->
+    <div class="promise-box">
+      <div class="promise-icon">🛡️</div>
+      <p class="promise-title ar">ضمان 100% — فلوسك في أمان</p>
+      <p class="promise-title en">100% Guarantee — Your Money is Safe</p>
+      <p class="promise-text ar">
+        بعد الدفع، هيوصلك الكتاب على إيميلك كملف مرفق مباشرة.<br>
+        لو <strong>ما وصلكش الكتاب خلال 24 ساعة</strong> لأي سبب —
+        هنرجعلك <strong>فلوسك كاملة</strong> بدون أي تعقيد.
+      </p>
+      <p class="promise-text en">
+        After payment, the book is sent directly to your email as an attachment.<br>
+        If <strong>you don't receive the book within 24 hours</strong> for any reason —
+        you get a <strong>full refund</strong>, no complications.
+      </p>
+    </div>
+
+    <!-- When you get a refund -->
+    <div class="policy-card">
+      <h2>
+        <span>✅</span>
+        <span class="ar">متى تستحق الاسترداد؟</span>
+        <span class="en">When Are You Eligible for a Refund?</span>
+      </h2>
+      <ul class="ar">
+        <li>ما وصلكش إيميل بالكتاب خلال 24 ساعة من الدفع</li>
+        <li>الملفات المرفقة تالفة أو مش قابلة للفتح</li>
+        <li>اتحسبت مرتين على نفس الطلب</li>
+        <li>في مشكلة تقنية منعتك من الاستلام</li>
+      </ul>
+      <ul class="en">
+        <li>You did not receive the book email within 24 hours of payment</li>
+        <li>The attached files are corrupted or cannot be opened</li>
+        <li>You were charged twice for the same order</li>
+        <li>A technical issue prevented you from receiving the book</li>
+      </ul>
+      <div class="highlight ar">
+        📌 قبل طلب الاسترداد — تأكد من فولدر Spam وPromotions في إيميلك. بعض الإيميلات بتروح هناك.
+      </div>
+      <div class="highlight en">
+        📌 Before requesting a refund — check your Spam and Promotions folders. Some emails land there automatically.
+      </div>
+    </div>
+
+    <!-- When no refund -->
+    <div class="policy-card">
+      <h2>
+        <span>❌</span>
+        <span class="ar">متى لا يُستحق الاسترداد؟</span>
+        <span class="en">When Is a Refund Not Applicable?</span>
+      </h2>
+      <ul class="ar">
+        <li>لو استلمت الكتاب بنجاح على إيميلك</li>
+        <li>لو طلبت الاسترداد بعد مرور أكثر من 7 أيام من الشراء</li>
+        <li>لو كانت المشكلة في جهازك أو برنامجك — ونحن قدرنا نثبت وصول الإيميل</li>
+      </ul>
+      <ul class="en">
+        <li>If you successfully received the book to your email</li>
+        <li>If the refund is requested more than 7 days after purchase</li>
+        <li>If the issue is with your device or software — and we can confirm the email was delivered</li>
+      </ul>
+    </div>
+
+    <!-- How to request -->
+    <div class="policy-card">
+      <h2>
+        <span>📋</span>
+        <span class="ar">كيف تطلب الاسترداد؟</span>
+        <span class="en">How to Request a Refund?</span>
+      </h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">١</div>
+          <p class="step-text ar"><strong>تواصل معنا</strong> على إيميل ahmedassem.eltorky@gmail.com أو واتساب +201068000080</p>
+        </div>
+        <div class="step">
+          <div class="step-num">٢</div>
+          <p class="step-text ar"><strong>اذكر</strong> إيميلك المستخدم في الشراء وتاريخ العملية</p>
+        </div>
+        <div class="step">
+          <div class="step-num">٣</div>
+          <p class="step-text ar"><strong>هنتحقق</strong> من الطلب ونرد عليك خلال 24 ساعة</p>
+        </div>
+        <div class="step">
+          <div class="step-num">٤</div>
+          <p class="step-text ar"><strong>لو الطلب صح</strong> — هيوصلك المبلغ على نفس وسيلة الدفع خلال 3-5 أيام عمل</p>
+        </div>
+      </div>
+
+      <!-- English steps -->
+      <div class="steps en" style="margin-top:14px;">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p class="step-text"><strong>Contact us</strong> at ahmedassem.eltorky@gmail.com or WhatsApp +201068000080</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p class="step-text"><strong>Provide</strong> the email used for purchase and the transaction date</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p class="step-text"><strong>We'll verify</strong> your order and respond within 24 hours</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p class="step-text"><strong>If approved</strong> — the refund is returned to your original payment method within 3–5 business days</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2 class="ar">في مشكلة؟ تواصل معنا دلوقتي</h2>
+      <h2 class="en">Have an Issue? Contact Us Now</h2>
+      <p class="ar">بنرد بسرعة — هدفنا إنك تكون راضي 100%</p>
+      <p class="en">We respond quickly — our goal is your complete satisfaction</p>
+      <div class="cta-btns">
+        <a href="mailto:ahmedassem.eltorky@gmail.com" class="cta-btn email">
+          <i class="fas fa-envelope"></i>
+          <span>ahmedassem.eltorky@gmail.com</span>
+        </a>
+        <a href="https://wa.me/201068000080?text=مرحباً%2C%20عندي%20استفسار%20عن%20استرداد" target="_blank" rel="noopener" class="cta-btn whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Ahmed Torky · <a href="index.html">ربيهم عادي</a> · <a href="contact.html">تواصل معنا / Contact</a></p>
+</footer>
+
+<script>
+function toggleLang(){
+  const h = document.documentElement;
+  if(h.dir === 'rtl'){ h.dir = 'ltr'; h.lang = 'en'; }
+  else { h.dir = 'rtl'; h.lang = 'ar'; }
+}
+</script>
+</body>
+</html>
