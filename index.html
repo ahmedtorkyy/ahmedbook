@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Raise Them Normal — Ahmed Torky | ربّوهم بشكل طبيعي — أحمد تركي</title>
   <script>try{var l=localStorage.getItem('rtn_lang');if(l==='en'){document.documentElement.dir='ltr';document.documentElement.lang='en';}else if(l==='ar'){document.documentElement.dir='rtl';document.documentElement.lang='ar';}}catch(e){}</script>
   <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
@@ -25,7 +26,7 @@
   <style>
     :root{--navy:#ffffff;--navy-dark:#ffffff;--gold:#111111;--gold-light:#333333;--white:#111111;--light:#ffffff;--text:#1a1a1a;--muted:#5a5a5a;--card:#ffffff;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;color-scheme:light;background:#ffffff;}
+    html{scroll-behavior:smooth;color-scheme:only light;background:#ffffff;}
     body{font-family:'Cairo',sans-serif;background:#ffffff;color:var(--text);line-height:1.7;}
     img{max-width:100%;display:block;}
     a{color:inherit;text-decoration:none;}
@@ -121,8 +122,12 @@
     html[dir="ltr"] .pricing-features li{justify-content:flex-start;}
     .pricing-features li:last-child{border-bottom:none;}
     .pricing-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;font-size:1rem;}
-    .buy-btn{display:block;width:100%;background:var(--gold);color:var(--navy);border:none;padding:16px;border-radius:12px;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;margin-top:8px;}
-    .buy-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18);}
+    .buy-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#111111;color:#ffffff;border:none;padding:18px 24px;border-radius:14px;font-family:inherit;font-size:1.18rem;font-weight:800;letter-spacing:.3px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;text-align:center;margin-top:10px;box-shadow:0 6px 18px rgba(0,0,0,.18);animation:buyPulse 2.4s ease-in-out infinite;}
+    .buy-btn:hover{background:#000000;transform:translateY(-3px) scale(1.01);box-shadow:0 14px 34px rgba(0,0,0,.32);animation:none;}
+    .buy-btn:active{transform:translateY(-1px) scale(.99);}
+    .buy-btn i{font-size:1rem;}
+    @keyframes buyPulse{0%,100%{box-shadow:0 6px 18px rgba(0,0,0,.18);}50%{box-shadow:0 9px 28px rgba(0,0,0,.30);}}
+    @media (prefers-reduced-motion: reduce){.buy-btn{animation:none;}}
     .paymob-note{font-size:.75rem;color:var(--muted);margin-top:10px;}
     .pay-icons{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
     .pay-icon{background:var(--card);border:1px solid #2a2a2a;border-radius:5px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--muted);}
@@ -325,8 +330,8 @@
           <li><span class="ar">صيغة Word — تشتغل مع كل قارئات الشاشة</span><span class="en">Word format — works with all screen readers</span></li>
         </ul>
 
-        <a href="KASHIER_LINK_HERE" class="buy-btn ar" target="_blank">اشتري دلوقتي — ١٠٩ جنيه</a>
-        <a href="KASHIER_LINK_HERE" class="buy-btn en" target="_blank">Buy Now — 109 EGP</a>
+        <a href="KASHIER_LINK_HERE" class="buy-btn ar" target="_blank"><i class="fas fa-cart-shopping"></i> اشتري دلوقتي — ١٠٩ جنيه</a>
+        <a href="KASHIER_LINK_HERE" class="buy-btn en" target="_blank"><i class="fas fa-cart-shopping"></i> Buy Now — 109 EGP</a>
 
         <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع الكتابين هيوصلوك على إيميلك فوراً.</p>
         <p class="secure-note en">🔒 Secure encrypted payment — both editions sent to your email immediately after.</p>
