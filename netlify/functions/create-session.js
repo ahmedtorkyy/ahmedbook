@@ -58,8 +58,7 @@ exports.handler = async (event) => {
     type: 'one-time',
     display: 'ar',
     allowedMethods: 'card,wallet',
-    merchantRedirect: SITE + '/success',
-    serverWebhook: SITE + '/.netlify/functions/kashier-webhook',
+    merchantRedirect: SITE + '/success?e=' + b64url(email),
     customer: { email: email, reference: order },
     description: 'Raise Them Normal / Rabbohom Beshakl Tabiei - both editions'
   };

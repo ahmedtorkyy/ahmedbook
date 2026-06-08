@@ -170,8 +170,20 @@ function toggleLang(){
     show('payment-error-state');
     return;
   }
+  // If the buyer's email was carried over from checkout (?e=...), deliver automatically
+  var em = params.get('e');
+  if(em){
+    try{
+      var b = em.replace(/-/g,'+').replace(/_/g,'/'); while(b.length % 4){ b += '='; }
+      var dec = atob(b);
+      if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dec)){
+        var inp = document.getElementById('buyer-email');
+        if(inp){ inp.value = dec; window._txId = txId; sendBook(); return; }
+      }
+    }catch(_e){}
+  }
   if(ok || txId){
-    window._txId = txId; // valid payment redirect — show email form
+    window._txId = txId; // valid payment redirect — show email form (manual fallback)
     return;
   }
   // No recognizable payment params — block direct access
