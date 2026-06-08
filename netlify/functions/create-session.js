@@ -54,10 +54,7 @@ exports.handler = async (event) => {
     amount: PRICE,
     currency: CURRENCY,
     order,
-    orderId: order,
-    merchantOrderId: order,
     merchantId: MID,
-    mode: MODE,
     type: 'one-time',
     display: 'ar',
     allowedMethods: 'card,wallet',
@@ -77,7 +74,7 @@ exports.handler = async (event) => {
     const url = data.sessionUrl || (data.paymentParams && data.paymentParams.sessionUrl);
     if (!res.ok || !url) {
       console.error('Kashier session error', res.status, JSON.stringify(data));
-      return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not start checkout' }) };
+      return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not start checkout', detail: (data && data.message) || null }) };
     }
     return { statusCode: 200, headers, body: JSON.stringify({ url }) };
   } catch (err) {
