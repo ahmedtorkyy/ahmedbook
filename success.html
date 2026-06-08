@@ -3,78 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شكراً لشرائك — ربيهم عادي</title>
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>شكراً لشرائك — ربّوهم بشكل طبيعي | Thank You — Raise Them Normal</title>
+  <script>try{var l=localStorage.getItem('rtn_lang');if(l==='en'){document.documentElement.dir='ltr';document.documentElement.lang='en';}else if(l==='ar'){document.documentElement.dir='rtl';document.documentElement.lang='ar';}}catch(e){}</script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="books/favicon.png" />
+  <link rel="apple-touch-icon" href="books/apple-touch-icon.png" />
   <style>
-    :root{--navy:#1A4E7A;--navy-dark:#0f2f4a;--gold:#D4AF37;--gold-light:#f0d060;--white:#fff;--light:#f8f9fb;--muted:#6b7a8d;--green:#16a34a;}
+    :root{--ink:#1a1a1a;--muted:#5a5a5a;--accent:#111111;--line:#ececec;--footer:#0f0f0f;}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Cairo',sans-serif;background:var(--light);color:#1a1a2e;min-height:100vh;display:flex;flex-direction:column;}
+    html{color-scheme:only light;background:#ffffff;}
+    body{font-family:'Cairo',sans-serif;background:#ffffff;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;line-height:1.7;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
 
-    .ar{display:block;}.en{display:none;}
-    html[dir="ltr"] .ar{display:none;}html[dir="ltr"] .en{display:block;}
+    [dir="rtl"] .en{display:none !important;}
+    [dir="ltr"] .ar{display:none !important;}
 
-    nav{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-    .nav-logo{color:var(--gold);font-size:1.1rem;font-weight:900;}
-    .lang-toggle{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:5px 12px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.8rem;font-weight:600;}
+    nav{background:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);}
+    .nav-logo{color:var(--accent);font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:10px;}
+    .nav-logo-icon{width:34px;height:34px;border-radius:9px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+    .lang-toggle{background:transparent;border:1.5px solid var(--accent);color:var(--accent);padding:5px 12px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.8rem;font-weight:600;}
+    .lang-toggle:hover{background:var(--accent);color:#fff;}
 
     main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;}
-    .card{background:var(--white);border-radius:20px;padding:48px 40px;max-width:540px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.1);}
+    .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:48px 40px;max-width:540px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.08);}
     @media(max-width:480px){.card{padding:32px 20px;}}
 
     .top-icon{font-size:3.5rem;margin-bottom:16px;}
-    h1{font-size:1.7rem;font-weight:900;color:var(--navy);margin-bottom:10px;}
+    h1{font-size:1.7rem;font-weight:900;color:var(--ink);margin-bottom:10px;}
     .subtitle{font-size:.95rem;color:var(--muted);margin-bottom:28px;line-height:1.75;}
 
-    /* Email form */
-    .email-form{background:var(--light);border:2px solid #e5e7eb;border-radius:14px;padding:24px;margin-bottom:20px;transition:border-color .2s;}
-    .email-form:focus-within{border-color:var(--gold);}
-    .form-label{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:10px;display:block;text-align:right;}
+    .email-form{background:#fafafa;border:2px solid var(--line);border-radius:14px;padding:24px;margin-bottom:20px;transition:border-color .2s;}
+    .email-form:focus-within{border-color:var(--accent);}
+    .form-label{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:10px;display:block;text-align:right;}
     html[dir="ltr"] .form-label{text-align:left;}
-    .email-input{width:100%;padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s;margin-bottom:14px;text-align:right;direction:ltr;}
-    html[dir="ltr"] .email-input{text-align:left;}
-    .email-input:focus{border-color:var(--gold);}
-    .submit-btn{width:100%;background:var(--gold);color:var(--navy);border:none;padding:14px;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;}
-    .submit-btn:hover:not(:disabled){background:var(--gold-light);transform:translateY(-2px);}
+    .email-input{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s;margin-bottom:14px;text-align:left;direction:ltr;}
+    .email-input:focus{border-color:var(--accent);}
+    .submit-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:15px;border-radius:12px;font-family:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 18px rgba(0,0,0,.18);}
+    .submit-btn:hover:not(:disabled){background:#000;transform:translateY(-2px);}
     .submit-btn:disabled{opacity:.65;cursor:not-allowed;transform:none;}
-    .spinner{width:18px;height:18px;border:2.5px solid rgba(26,78,122,.25);border-top-color:var(--navy);border-radius:50%;animation:spin .7s linear infinite;display:none;}
+    .spinner{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;}
     @keyframes spin{to{transform:rotate(360deg);}}
     .submit-btn.loading .spinner{display:block;}
     .submit-btn.loading .btn-text{display:none;}
 
-    /* States */
-    #default-state{}
     #sent-state{display:none;}
-    #error-state{display:none;}
     #payment-error-state{display:none;}
 
     .sent-icon{font-size:3.5rem;margin-bottom:16px;}
-    .sent-title{font-size:1.5rem;font-weight:900;color:var(--green);margin-bottom:10px;}
-    .sent-box{background:#f0fdf4;border:2px solid #86efac;border-radius:14px;padding:24px;margin:20px 0;}
-    .sent-box p{font-size:.9rem;color:#166534;line-height:1.75;}
+    .sent-title{font-size:1.5rem;font-weight:900;color:var(--ink);margin-bottom:10px;}
+    .sent-box{background:#fafafa;border:1px solid var(--line);border-radius:14px;padding:24px;margin:20px 0;}
+    .sent-box p{font-size:.9rem;color:var(--muted);line-height:1.75;}
 
     .inline-error{font-size:.8rem;color:#dc2626;margin-top:8px;display:none;}
-    .server-error-box{background:#fef2f2;border:2px solid #fca5a5;border-radius:12px;padding:20px;margin:16px 0;}
+    .server-error-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:12px;padding:20px;margin:16px 0;}
     .server-error-box p{color:#dc2626;font-weight:700;font-size:.9rem;}
 
-    .payment-error-box{background:#fef2f2;border:2px solid #fca5a5;border-radius:12px;padding:24px;margin:16px 0;}
+    .payment-error-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:12px;padding:24px;margin:16px 0;}
     .payment-error-box p{color:#dc2626;font-weight:700;margin-bottom:16px;}
-    .back-btn{display:inline-block;background:var(--navy);color:var(--white);padding:12px 28px;border-radius:10px;font-family:inherit;font-size:.9rem;font-weight:700;text-decoration:none;}
+    .back-btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-family:inherit;font-size:.9rem;font-weight:700;text-decoration:none;}
 
-    .divider{border:none;border-top:1px solid #e5e7eb;margin:22px 0;}
+    .divider{border:none;border-top:1px solid var(--line);margin:22px 0;}
     .support{font-size:.82rem;color:var(--muted);line-height:1.7;}
-    .support a{color:var(--navy);font-weight:700;}
-    .whatsapp-link{display:inline-flex;align-items:center;gap:5px;color:#25D366;font-weight:700;}
+    .support a{color:var(--accent);font-weight:700;}
     .quote{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:4px;}
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">
-    <span class="ar">ربيهم عادي</span>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo-icon.png" class="nav-logo-icon" alt="" />
+    <span class="ar">ربّوهم بشكل طبيعي</span>
     <span class="en">Raise Them Normal</span>
-  </div>
+  </a>
   <button class="lang-toggle" onclick="toggleLang()">
     <span class="ar">English</span><span class="en">عربي</span>
   </button>
@@ -83,7 +88,7 @@
 <main>
   <div class="card">
 
-    <!-- ══ DEFAULT: email form ══ -->
+    <!-- DEFAULT: email form -->
     <div id="default-state">
       <div class="top-icon">🎉</div>
       <h1 class="ar">الدفع تم بنجاح!</h1>
@@ -94,14 +99,7 @@
       <div class="email-form">
         <label class="form-label ar" for="buyer-email">📧 إيميلك</label>
         <label class="form-label en" for="buyer-email">📧 Your email address</label>
-        <input
-          type="email"
-          id="buyer-email"
-          class="email-input"
-          placeholder="example@gmail.com"
-          autocomplete="email"
-          inputmode="email"
-        />
+        <input type="email" id="buyer-email" class="email-input" placeholder="example@gmail.com" autocomplete="email" inputmode="email" />
         <p class="inline-error ar" id="email-error-ar">من فضلك أدخل إيميل صحيح.</p>
         <p class="inline-error en" id="email-error-en">Please enter a valid email address.</p>
         <button class="submit-btn" id="submit-btn" onclick="sendBook()">
@@ -111,67 +109,31 @@
         </button>
       </div>
 
-      <!-- Server error (shown inline if send fails) -->
       <div class="server-error-box" id="server-error" style="display:none;">
         <p class="ar">حصل خطأ أثناء الإرسال. جرب تاني أو تواصل معنا.</p>
         <p class="en">Something went wrong. Please try again or contact us.</p>
       </div>
 
       <div class="divider"></div>
-      <p class="support ar">
-        محتاج مساعدة؟ تواصل مع أحمد على
-        <a href="mailto:ahmedassem.eltorky@gmail.com">ahmedassem.eltorky@gmail.com</a>
-        أو
-        <a href="https://wa.me/201068000080" class="whatsapp-link" target="_blank">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-      </p>
-      <p class="support en">
-        Need help? Contact Ahmed at
-        <a href="mailto:ahmedassem.eltorky@gmail.com">ahmedassem.eltorky@gmail.com</a>
-        or
-        <a href="https://wa.me/201068000080" class="whatsapp-link" target="_blank">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-      </p>
+      <p class="support ar">محتاج مساعدة؟ تواصل مع أحمد على <a href="mailto:ahmedassem.eltorky@gmail.com">ahmedassem.eltorky@gmail.com</a> أو <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
+      <p class="support en">Need help? Contact Ahmed at <a href="mailto:ahmedassem.eltorky@gmail.com">ahmedassem.eltorky@gmail.com</a> or <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
     </div>
 
-    <!-- ══ SENT SUCCESSFULLY ══ -->
+    <!-- SENT -->
     <div id="sent-state">
       <div class="sent-icon">📬</div>
       <p class="sent-title ar">اتبعت على إيميلك!</p>
       <p class="sent-title en">Check Your Inbox!</p>
       <div class="sent-box">
-        <p class="ar">
-          بعتنالك النسختين كملفات مرفقة على إيميلك.<br>
-          لو ما لاقيتهمش في الوارد، اتأكد من فولدر <strong>Spam</strong> أو <strong>Promotions</strong>.<br><br>
-          شكراً على ثقتك — وياريت تشارك الكتاب مع أي حد محتاجه. 🙏
-        </p>
-        <p class="en">
-          We've sent both editions as attachments to your email.<br>
-          If you don't see it, check your <strong>Spam</strong> or <strong>Promotions</strong> folder.<br><br>
-          Thank you for your trust — please share the book with anyone who needs it. 🙏
-        </p>
+        <p class="ar">بعتنالك النسختين كملفات مرفقة على إيميلك.<br>لو ما لاقيتهمش في الوارد، اتأكد من فولدر <strong>Spam</strong> أو <strong>Promotions</strong>.<br><br>شكراً على ثقتك — وياريت تشارك الكتاب مع أي حد محتاجه. 🙏</p>
+        <p class="en">We've sent both editions as attachments to your email.<br>If you don't see it, check your <strong>Spam</strong> or <strong>Promotions</strong> folder.<br><br>Thank you for your trust — please share the book with anyone who needs it. 🙏</p>
       </div>
-      <div class="divider"></div>
-      <p class="support ar">
-        في مشكلة؟
-        <a href="https://wa.me/201068000080" class="whatsapp-link" target="_blank">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-      </p>
-      <p class="support en">
-        Problem?
-        <a href="https://wa.me/201068000080" class="whatsapp-link" target="_blank">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-      </p>
       <div class="divider"></div>
       <p class="quote ar">"اشتغل بصمت. خلي نجاحك يتكلم." — أحمد تركي</p>
       <p class="quote en">"Work hard in silence. Let your success make the noise." — Ahmed Torky</p>
     </div>
 
-    <!-- ══ PAYMENT FAILED ══ -->
+    <!-- PAYMENT FAILED -->
     <div id="payment-error-state">
       <div class="top-icon">😔</div>
       <div class="payment-error-box">
@@ -187,57 +149,56 @@
 
 <script>
 function toggleLang(){
-  const h = document.documentElement;
-  if(h.dir === 'rtl'){ h.dir = 'ltr'; h.lang = 'en'; }
-  else { h.dir = 'rtl'; h.lang = 'ar'; }
+  var h = document.documentElement;
+  var next = (h.dir === 'rtl') ? 'en' : 'ar';
+  if(next === 'en'){ h.dir = 'ltr'; h.lang = 'en'; } else { h.dir = 'rtl'; h.lang = 'ar'; }
+  try{ localStorage.setItem('rtn_lang', next); }catch(e){}
 }
 
-// Gate: only show email form if Paymob redirected here after a real payment
+// Gate: detect Kashier (or generic) payment-success redirect params
 (function(){
-  const params  = new URLSearchParams(window.location.search);
-  const success = params.get('success');
-  const txId    = params.get('id') || params.get('transaction_id') || params.get('order');
+  var params = new URLSearchParams(window.location.search);
+  var raw = (params.get('paymentStatus') || params.get('status') || params.get('success') || '').toString().toUpperCase();
+  var txId = params.get('transactionId') || params.get('orderId') || params.get('merchantOrderId') || params.get('orderReference') || params.get('id') || params.get('order') || '';
+  var failed = (raw === 'FAILED' || raw === 'FAILURE' || raw === 'FALSE' || raw === 'DECLINED' || raw === 'ERROR');
+  var ok = (raw === 'SUCCESS' || raw === 'PAID' || raw === 'TRUE' || raw === 'APPROVED' || raw === 'CAPTURED');
 
-  if(success === 'false'){
-    // Paymob confirmed payment failed
+  function show(id){ document.getElementById(id).style.display = 'block'; }
+
+  if(failed){
     document.getElementById('default-state').style.display = 'none';
-    document.getElementById('payment-error-state').style.display = 'block';
+    show('payment-error-state');
     return;
   }
-
-  if(success !== 'true' || !txId){
-    // No valid Paymob redirect — hide everything, show blocked message
-    document.getElementById('default-state').style.display = 'none';
-    document.getElementById('payment-error-state').innerHTML =
-      '<div class="top-icon">🔒</div>' +
-      '<div class="payment-error-box">' +
-        '<p class="ar">هذه الصفحة متاحة فقط بعد إتمام عملية الشراء.</p>' +
-        '<p class="en">This page is only available after completing a purchase.</p>' +
-      '</div>' +
-      '<a href="index.html" class="back-btn ar">← اشتري الكتاب</a>' +
-      '<a href="index.html" class="back-btn en">← Buy the Book</a>';
-    document.getElementById('payment-error-state').style.display = 'block';
+  if(ok || txId){
+    window._txId = txId; // valid payment redirect — show email form
     return;
   }
-
-  // Valid payment redirect — store transaction ID for later use
-  window._paymobTxId = txId;
+  // No recognizable payment params — block direct access
+  document.getElementById('default-state').style.display = 'none';
+  document.getElementById('payment-error-state').innerHTML =
+    '<div class="top-icon">🔒</div>' +
+    '<div class="payment-error-box">' +
+      '<p class="ar">هذه الصفحة متاحة فقط بعد إتمام عملية الشراء.</p>' +
+      '<p class="en">This page is only available after completing a purchase.</p>' +
+    '</div>' +
+    '<a href="index.html" class="back-btn ar">← اشتري الكتاب</a>' +
+    '<a href="index.html" class="back-btn en">← Buy the Book</a>';
+  show('payment-error-state');
 })();
 
 async function sendBook() {
-  const emailInput = document.getElementById('buyer-email');
-  const email = emailInput.value.trim();
-  const btn = document.getElementById('submit-btn');
-  const serverErr = document.getElementById('server-error');
-  const errAr = document.getElementById('email-error-ar');
-  const errEn = document.getElementById('email-error-en');
+  var emailInput = document.getElementById('buyer-email');
+  var email = emailInput.value.trim();
+  var btn = document.getElementById('submit-btn');
+  var serverErr = document.getElementById('server-error');
+  var errAr = document.getElementById('email-error-ar');
+  var errEn = document.getElementById('email-error-en');
 
-  // Hide previous errors
   errAr.style.display = 'none';
   errEn.style.display = 'none';
   serverErr.style.display = 'none';
 
-  // Validate email
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errAr.style.display = 'block';
     errEn.style.display = 'block';
@@ -245,31 +206,28 @@ async function sendBook() {
     return;
   }
 
-  // Loading state
   btn.disabled = true;
   btn.classList.add('loading');
 
   try {
-    const res = await fetch('/.netlify/functions/send-book', {
+    var res = await fetch('/.netlify/functions/send-book', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, txId: window._paymobTxId || '' })
+      body: JSON.stringify({ email: email, txId: window._txId || '' })
     });
-
     if (res.ok) {
       document.getElementById('default-state').style.display = 'none';
       document.getElementById('sent-state').style.display = 'block';
     } else {
       throw new Error('Send failed');
     }
-  } catch {
+  } catch (e) {
     serverErr.style.display = 'block';
     btn.disabled = false;
     btn.classList.remove('loading');
   }
 }
 
-// Allow Enter key to submit
 document.getElementById('buyer-email').addEventListener('keydown', function(e){
   if(e.key === 'Enter') sendBook();
 });

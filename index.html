@@ -163,6 +163,25 @@
     .whatsapp-float:hover{background:#333;color:#fff;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.3);}
     @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.18);}50%{box-shadow:0 4px 28px rgba(0,0,0,.3);}}
     @media(max-width:480px){.whatsapp-float span{display:none;}.whatsapp-float{padding:14px;border-radius:50%;}}
+    /* ── CHECKOUT MODAL ── */
+    @keyframes spin{to{transform:rotate(360deg);}}
+    #checkout-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+    .co-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);}
+    .co-box{position:relative;background:#fff;border-radius:16px;padding:34px 28px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.45);}
+    .co-close{position:absolute;top:10px;left:14px;background:none;border:none;font-size:1.7rem;cursor:pointer;color:#999;line-height:1;}
+    html[dir="ltr"] .co-close{left:auto;right:14px;}
+    .co-title{font-size:1.2rem;font-weight:900;color:#111;margin-bottom:8px;}
+    .co-sub{font-size:.88rem;color:#5a5a5a;margin-bottom:18px;}
+    .co-input{width:100%;padding:13px 16px;border:1.5px solid #ddd;border-radius:10px;font-family:inherit;font-size:.95rem;outline:none;margin-bottom:6px;direction:ltr;text-align:left;}
+    .co-input:focus{border-color:#111;}
+    .co-error{font-size:.78rem;color:#dc2626;margin-bottom:8px;display:none;}
+    .co-continue{width:100%;background:#111;color:#fff;border:none;padding:15px;border-radius:12px;font-family:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;}
+    .co-continue:hover:not(:disabled){background:#000;}
+    .co-continue:disabled{opacity:.65;cursor:not-allowed;}
+    .co-spin{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;}
+    .co-continue.loading .co-spin{display:block;}
+    .co-continue.loading .co-ctext{display:none;}
+    .co-secure{font-size:.75rem;color:#888;margin-top:12px;}
   </style>
 </head>
 <body>
@@ -330,8 +349,8 @@
           <li><span class="ar">صيغة Word — تشتغل مع كل قارئات الشاشة</span><span class="en">Word format — works with all screen readers</span></li>
         </ul>
 
-        <a href="KASHIER_LINK_HERE" class="buy-btn ar" target="_blank"><i class="fas fa-cart-shopping"></i> اشتري دلوقتي — ١٠٩ جنيه</a>
-        <a href="KASHIER_LINK_HERE" class="buy-btn en" target="_blank"><i class="fas fa-cart-shopping"></i> Buy Now — 109 EGP</a>
+        <a href="javascript:void(0)" onclick="openCheckout()" class="buy-btn ar"><i class="fas fa-cart-shopping"></i> اشتري دلوقتي — ١٠٩ جنيه</a>
+        <a href="javascript:void(0)" onclick="openCheckout()" class="buy-btn en"><i class="fas fa-cart-shopping"></i> Buy Now — 109 EGP</a>
 
         <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع الكتابين هيوصلوك على إيميلك فوراً.</p>
         <p class="secure-note en">🔒 Secure encrypted payment — both editions sent to your email immediately after.</p>
@@ -464,6 +483,46 @@ function toggleFaq(btn){
   });
   if(!ex){ btn.setAttribute('aria-expanded','true'); btn.nextElementSibling.classList.add('open'); }
 }
+
+function openCheckout(){ document.getElementById('checkout-modal').style.display='flex'; setTimeout(function(){var e=document.getElementById('co-email'); if(e) e.focus();},60); }
+function closeCheckout(){ document.getElementById('checkout-modal').style.display='none'; }
+async function startCheckout(){
+  var input=document.getElementById('co-email');
+  var email=input.value.trim();
+  var errAr=document.getElementById('co-err-ar'), errEn=document.getElementById('co-err-en');
+  var btn=document.getElementById('co-continue');
+  errAr.style.display='none'; errEn.style.display='none';
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errAr.style.display='block'; errEn.style.display='block'; input.focus(); return; }
+  btn.disabled=true; btn.classList.add('loading');
+  try{
+    var res=await fetch('/.netlify/functions/create-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})});
+    var data=await res.json().catch(function(){return {};});
+    if(res.ok && data.url){ window.location.href=data.url; return; }
+    throw new Error('no url');
+  }catch(e){ alert('حصل خطأ، حاول تاني / Something went wrong, please try again'); btn.disabled=false; btn.classList.remove('loading'); }
+}
+document.addEventListener('keydown',function(e){ var m=document.getElementById('checkout-modal'); if(e.key==='Enter' && m && m.style.display==='flex') startCheckout(); if(e.key==='Escape' && m && m.style.display==='flex') closeCheckout(); });
 </script>
+<!-- ══ CHECKOUT MODAL ══ -->
+<div id="checkout-modal">
+  <div class="co-overlay" onclick="closeCheckout()"></div>
+  <div class="co-box" role="dialog" aria-modal="true">
+    <button class="co-close" onclick="closeCheckout()" aria-label="Close">&times;</button>
+    <h3 class="co-title ar">إيميلك لاستلام الكتاب</h3>
+    <h3 class="co-title en">Your email to receive the book</h3>
+    <p class="co-sub ar">هنبعتلك النسختين على الإيميل ده فور إتمام الدفع.</p>
+    <p class="co-sub en">Both editions are emailed here right after payment.</p>
+    <input type="email" id="co-email" class="co-input" placeholder="example@gmail.com" inputmode="email" autocomplete="email" />
+    <p class="co-error ar" id="co-err-ar">من فضلك أدخل إيميل صحيح.</p>
+    <p class="co-error en" id="co-err-en">Please enter a valid email.</p>
+    <button class="co-continue" id="co-continue" onclick="startCheckout()">
+      <span class="co-spin" id="co-spin"></span>
+      <span class="co-ctext ar">متابعة للدفع — ١٠٩ جنيه</span>
+      <span class="co-ctext en">Continue to Payment — 109 EGP</span>
+    </button>
+    <p class="co-secure ar">🔒 دفع آمن عبر Kashier</p>
+    <p class="co-secure en">🔒 Secure payment via Kashier</p>
+  </div>
+</div>
 </body>
 </html>
