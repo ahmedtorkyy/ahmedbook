@@ -193,27 +193,62 @@ function toggleLang(){
 
 var SENT = false;
 
+// Verify the payment with Kashier (server-side) BEFORE delivering anything.
+// A failed payment must NEVER receive the book.
 (function(){
   var params = new URLSearchParams(window.location.search);
-  var raw = (params.get('paymentStatus') || params.get('status') || params.get('success') || '').toString().toUpperCase();
-  if(raw === 'FAILED' || raw === 'FAILURE' || raw === 'FALSE' || raw === 'DECLINED' || raw === 'ERROR'){
-    document.getElementById('default-state').style.display = 'none';
-    document.getElementById('payment-error-state').style.display = 'block';
-    return;
-  }
+  var email = '';
   var em = params.get('e');
   if(em){
     try{
       var b = em.replace(/-/g,'+').replace(/_/g,'/'); while(b.length % 4){ b += '='; }
       var dec = atob(b);
-      if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dec)){
-        document.getElementById('buyer-email').value = dec;
-        sendBook();
-        return;
-      }
+      if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dec)){ email = dec; }
     }catch(_e){}
   }
-  // no email carried over — show the manual form (default)
+
+  var sid = '';
+  try{ sid = localStorage.getItem('rtn_pending') || ''; }catch(_e){}
+
+  // No payment was started in this browser → show the manual form (fallback).
+  if(!sid){ return; }
+
+  // Show the loader while we confirm the payment with Kashier.
+  document.getElementById('default-state').style.display = 'none';
+  document.getElementById('sending-state').style.display = 'block';
+  showStep('st1');
+
+  fetch('/.netlify/functions/verify-payment', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ sid: sid })
+  })
+  .then(function(r){ return r.json().catch(function(){ return {}; }); })
+  .then(function(v){
+    try{ localStorage.removeItem('rtn_pending'); }catch(_e){}
+    if(v && v.ok === false){
+      // Couldn't reach Kashier to confirm → let the buyer enter their email manually.
+      document.getElementById('sending-state').style.display = 'none';
+      document.getElementById('default-state').style.display = 'block';
+      return;
+    }
+    if(v && v.paid){
+      // Payment confirmed → deliver.
+      if(email){ document.getElementById('buyer-email').value = email; sendBook(); }
+      else {
+        document.getElementById('sending-state').style.display = 'none';
+        document.getElementById('default-state').style.display = 'block';
+      }
+    } else {
+      // Payment was NOT successful → friendly failure page, nothing sent.
+      document.getElementById('sending-state').style.display = 'none';
+      document.getElementById('payment-error-state').style.display = 'block';
+    }
+  })
+  .catch(function(){
+    try{ localStorage.removeItem('rtn_pending'); }catch(_e){}
+    document.getElementById('sending-state').style.display = 'none';
+    document.getElementById('payment-error-state').style.display = 'block';
+  });
 })();
 
 function showStep(id){ var el=document.getElementById(id); if(el) el.classList.add('active'); }

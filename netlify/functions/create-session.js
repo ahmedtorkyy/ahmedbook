@@ -76,7 +76,8 @@ exports.handler = async (event) => {
       console.error('Kashier session error', res.status, JSON.stringify(data));
       return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not start checkout', detail: (data && data.message) || null }) };
     }
-    return { statusCode: 200, headers, body: JSON.stringify({ url }) };
+    const sid = (data && (data._id || data.sessionId)) || (url && (url.match(/\/session\/([^/?#]+)/) || [])[1]) || '';
+    return { statusCode: 200, headers, body: JSON.stringify({ url, sid }) };
   } catch (err) {
     console.error('create-session error', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Checkout failed' }) };
