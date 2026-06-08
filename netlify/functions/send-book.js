@@ -1,9 +1,62 @@
 // Netlify Function: send-book.js
-// Sends both book editions via Gmail SMTP using nodemailer
-// Required env variables in Netlify:
-//   GMAIL_APP_PASSWORD  → 16-char app password from myaccount.google.com
+// Emails both book editions. The email language follows the buyer's website language (lang: 'ar' | 'en').
+// Required env: GMAIL_APP_PASSWORD
 
 const nodemailer = require('nodemailer');
+
+const GMAIL_USER = 'ahmedassem.eltorky@gmail.com';
+const BASE_URL = 'https://ahmedtorkyy.netlify.app';
+
+function buildHtml(isAr){
+  var header = `
+    <div style="background:#0d0d0d;padding:28px 36px;text-align:center;">
+      <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 16px;"><tr>
+        <td style="padding:0 7px;"><img src="${BASE_URL}/books/cover_arabic.png" width="100" alt="" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.5);"></td>
+        <td style="padding:0 7px;"><img src="${BASE_URL}/books/cover_english.png" width="100" alt="" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.5);"></td>
+      </tr></table>
+      <p style="color:#D4AF37;font-size:1.4rem;font-weight:bold;margin:0 0 4px;">${isAr ? 'ربّوهم بشكل طبيعي' : 'Raise Them Normal'}</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:.85rem;margin:0;">${isAr ? 'أحمد تركي' : 'Ahmed Torky'}</p>
+    </div>`;
+
+  var bodyAr = `
+    <div style="padding:32px 36px;color:#1a1a2e;font-size:.95rem;line-height:1.9;" dir="rtl">
+      <p style="font-weight:bold;color:#0d0d0d;">السادة الكرام،</p>
+      <p>نشكركم على اقتنائكم كتاب <strong>ربّوهم بشكل طبيعي</strong>. النسختان العربية والإنجليزية مرفقتان بهذا البريد.</p>
+      <p>افتح الملفات باستخدام Microsoft Word أو Google Docs على أي جهاز — وهي متوافقة تمامًا مع قارئات الشاشة (NVDA, VoiceOver, TalkBack).</p>
+      <div style="background:#f8f9fb;border:1px solid #e0e4ea;border-radius:8px;padding:18px 22px;margin:22px 0;">
+        <div style="padding:8px 0;font-weight:bold;font-size:.88rem;">📘 ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — النسخة العربية</div>
+        <div style="padding:8px 0;font-weight:bold;font-size:.88rem;border-top:1px solid #e8eaed;">📗 Raise_Them_Normal_Ahmed_Torky.docx — النسخة الإنجليزية</div>
+      </div>
+      <p>لأي استفسار أو مشكلة تقنية: <a href="mailto:${GMAIL_USER}" style="color:#0d0d0d;font-weight:bold;">${GMAIL_USER}</a></p>
+      <p style="margin-top:22px;">نتمنى لكم قراءة مثمرة ونافعة 🤍</p>
+      <p style="font-weight:bold;color:#0d0d0d;margin-top:18px;">أحمد تركي</p>
+      <p style="color:#6b7a8d;font-size:.82rem;">مؤلف كتاب ربّوهم بشكل طبيعي</p>
+    </div>`;
+
+  var bodyEn = `
+    <div style="padding:32px 36px;color:#1a1a2e;font-size:.95rem;line-height:1.8;" dir="ltr">
+      <p style="font-weight:bold;color:#0d0d0d;">Dear Reader,</p>
+      <p>Thank you for purchasing <strong>Raise Them Normal</strong>. Both editions — Arabic and English — are attached to this email.</p>
+      <p>Open the files with Microsoft Word or Google Docs on any device. Fully compatible with screen readers (NVDA, VoiceOver, TalkBack).</p>
+      <div style="background:#f8f9fb;border:1px solid #e0e4ea;border-radius:8px;padding:18px 22px;margin:22px 0;">
+        <div style="padding:8px 0;font-weight:bold;font-size:.88rem;">📗 Raise_Them_Normal_Ahmed_Torky.docx — English edition</div>
+        <div style="padding:8px 0;font-weight:bold;font-size:.88rem;border-top:1px solid #e8eaed;">📘 ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — Arabic edition</div>
+      </div>
+      <p>For any question or technical issue: <a href="mailto:${GMAIL_USER}" style="color:#0d0d0d;font-weight:bold;">${GMAIL_USER}</a></p>
+      <p style="margin-top:22px;">We hope this book serves you and your family well 🤍</p>
+      <p style="font-weight:bold;color:#0d0d0d;margin-top:18px;">Ahmed Torky</p>
+      <p style="color:#6b7a8d;font-size:.82rem;">Author, Raise Them Normal</p>
+    </div>`;
+
+  return `<!DOCTYPE html><html dir="${isAr ? 'rtl' : 'ltr'}" lang="${isAr ? 'ar' : 'en'}"><head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;background:#f0f2f5;margin:0;padding:24px 16px;">
+  <div style="max-width:580px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e0e4ea;">
+    ${header}
+    ${isAr ? bodyAr : bodyEn}
+    <div style="background:#f0f2f5;border-top:1px solid #e0e4ea;padding:16px 36px;text-align:center;font-size:.75rem;color:#8a94a0;">© 2026 Ahmed Torky · ${GMAIL_USER}</div>
+  </div>
+</body></html>`;
+}
 
 exports.handler = async (event) => {
   const headers = {
@@ -11,161 +64,50 @@ exports.handler = async (event) => {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
   };
-
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers, body: '' };
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
 
-  // Parse request
-  let email, txId;
-  try {
-    ({ email, txId } = JSON.parse(event.body));
-  } catch {
-    return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request' }) };
-  }
-
+  let email, lang, txId;
+  try { ({ email, lang, txId } = JSON.parse(event.body)); }
+  catch { return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request' }) }; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid email address' }) };
   }
 
-  const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
-  const GMAIL_USER = 'ahmedassem.eltorky@gmail.com';
+  const pass = process.env.GMAIL_APP_PASSWORD;
+  if (!pass) { console.error('GMAIL_APP_PASSWORD not set'); return { statusCode: 500, headers, body: JSON.stringify({ error: 'Server configuration error' }) }; }
 
-  if (!GMAIL_APP_PASSWORD) {
-    console.error('GMAIL_APP_PASSWORD not set');
-    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Server configuration error' }) };
-  }
+  const isAr = (lang !== 'en'); // default Arabic
 
-  // Fetch both book files from the live site
-  const BASE_URL = 'https://ahmedtorkyy.netlify.app';
   let arabicBuffer, englishBuffer;
-
   try {
-    const [arabicRes, englishRes] = await Promise.all([
+    const [ar, en] = await Promise.all([
       fetch(`${BASE_URL}/books/Raise_Them_Normal_Arabic-final.docx`),
       fetch(`${BASE_URL}/books/Raise_Them_Normal_Final.docx`)
     ]);
-
-    if (!arabicRes.ok || !englishRes.ok) throw new Error('Failed to fetch book files');
-
-    const [arabicAB, englishAB] = await Promise.all([
-      arabicRes.arrayBuffer(),
-      englishRes.arrayBuffer()
-    ]);
-
-    arabicBuffer  = Buffer.from(arabicAB);
-    englishBuffer = Buffer.from(englishAB);
+    if (!ar.ok || !en.ok) throw new Error('Failed to fetch book files');
+    const [arAB, enAB] = await Promise.all([ar.arrayBuffer(), en.arrayBuffer()]);
+    arabicBuffer = Buffer.from(arAB);
+    englishBuffer = Buffer.from(enAB);
   } catch (err) {
     console.error('File fetch error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Could not prepare book files' }) };
   }
 
-  // Email HTML template
-  const emailHtml = `
-<!DOCTYPE html>
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 24px 16px; }
-  .wrap { max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e4ea; }
-  .header { background: #0d0d0d; padding: 32px 36px; text-align: center; }
-  .header-title { color: #D4AF37; font-size: 1.5rem; font-weight: bold; margin: 0 0 4px; }
-  .header-sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin: 0; }
-  .body { padding: 36px; color: #1a1a2e; font-size: 0.95rem; line-height: 1.8; }
-  .salutation { font-size: 1rem; font-weight: bold; margin-bottom: 16px; color: #0d0d0d; }
-  .paragraph { margin-bottom: 16px; }
-  .attachments { background: #f8f9fb; border: 1px solid #e0e4ea; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
-  .attachments-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7a8d; margin-bottom: 12px; font-weight: bold; }
-  .attachment-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #e8eaed; font-size: 0.88rem; color: #1a1a2e; font-weight: bold; }
-  .attachment-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .help { background: #fdfaf0; border-right: 3px solid #D4AF37; padding: 14px 18px; border-radius: 6px; font-size: 0.84rem; color: #4a3c00; line-height: 1.7; margin: 24px 0; }
-  .divider { border: none; border-top: 1px solid #e8eaed; margin: 28px 0; }
-  .en-section { direction: ltr; text-align: left; color: #3a3a4a; font-size: 0.9rem; line-height: 1.8; }
-  .signature { margin-top: 24px; font-size: 0.88rem; color: #3a3a4a; }
-  .signature-name { font-weight: bold; color: #0d0d0d; font-size: 1rem; }
-  .footer { background: #f0f2f5; border-top: 1px solid #e0e4ea; padding: 18px 36px; text-align: center; font-size: 0.75rem; color: #8a94a0; }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="header">
-    <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 18px;"><tr>
-      <td style="padding:0 7px;"><img src="https://ahmedtorkyy.netlify.app/books/cover_arabic.png" width="104" alt="ربّوهم بشكل طبيعي" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.55);"></td>
-      <td style="padding:0 7px;"><img src="https://ahmedtorkyy.netlify.app/books/cover_english.png" width="104" alt="Raise Them Normal" style="display:block;border-radius:7px;box-shadow:0 8px 22px rgba(0,0,0,.55);"></td>
-    </tr></table>
-    <p class="header-title">ربّوهم بشكل طبيعي — Raise Them Normal</p>
-    <p class="header-sub">أحمد تركي · Ahmed Torky</p>
-  </div>
-  <div class="body">
-    <p class="salutation">السادة الكرام،</p>
-    <p class="paragraph">نشكركم على اقتنائكم كتاب <strong>ربّوهم بشكل طبيعي</strong>. يسعدنا إرسال نسختَي الكتاب مرفقتَين بهذا البريد الإلكتروني، وهما النسخة العربية والنسخة الإنجليزية.</p>
-    <p class="paragraph">يمكن فتح الملفات باستخدام Microsoft Word أو Google Docs على أي جهاز، وهي متوافقة تمامًا مع برامج قراءة الشاشة كـ NVDA وVoiceOver وTalkBack.</p>
-    <div class="attachments">
-      <p class="attachments-title">الملفات المرفقة</p>
-      <div class="attachment-item"><span>📘</span><span>ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — النسخة العربية</span></div>
-      <div class="attachment-item"><span>📗</span><span>Raise_Them_Normal_Ahmed_Torky.docx — النسخة الإنجليزية</span></div>
-    </div>
-    <div class="help">في حال وجود أي استفسار أو مشكلة تقنية، يُرجى التواصل عبر البريد الإلكتروني: ahmedassem.eltorky@gmail.com</div>
-    <p class="paragraph">نتمنى لكم قراءة مثمرة ونافعة.</p>
-    <div class="signature">
-      <p>مع خالص التقدير،</p>
-      <p class="signature-name">أحمد تركي</p>
-      <p style="color:#6b7a8d;font-size:0.82rem;">مؤلف كتاب ربّوهم بشكل طبيعي</p>
-    </div>
-    <hr class="divider" />
-    <div class="en-section">
-      <p class="salutation">Dear Reader,</p>
-      <p class="paragraph">Thank you for purchasing <strong>Raise Them Normal</strong>. Both editions are attached to this email — the Arabic edition and the English edition.</p>
-      <p class="paragraph">Open with Microsoft Word or Google Docs on any device. Fully compatible with NVDA, VoiceOver, and TalkBack.</p>
-      <div class="attachments">
-        <p class="attachments-title">Attached Files</p>
-        <div class="attachment-item"><span>📘</span><span>ربّوهم_بشكل_طبيعي_أحمد_تركي.docx — Arabic Edition</span></div>
-        <div class="attachment-item"><span>📗</span><span>Raise_Them_Normal_Ahmed_Torky.docx — English Edition</span></div>
-      </div>
-      <div class="help" style="border-right:none;border-left:3px solid #D4AF37;">For any questions: ahmedassem.eltorky@gmail.com</div>
-      <p class="paragraph">We hope this book serves you and your family well.</p>
-      <div class="signature">
-        <p>With warm regards,</p>
-        <p class="signature-name">Ahmed Torky</p>
-        <p style="color:#6b7a8d;font-size:0.82rem;">Author, Raise Them Normal</p>
-      </div>
-    </div>
-  </div>
-  <div class="footer">© 2026 Ahmed Torky · ahmedassem.eltorky@gmail.com</div>
-</div>
-</body>
-</html>`;
-
-  // Send via Gmail SMTP
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD }
-    });
-
+    const transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: GMAIL_USER, pass } });
     await transporter.sendMail({
-      from: `"أحمد تركي | ربّوهم بشكل طبيعي" <${GMAIL_USER}>`,
+      from: `"${isAr ? 'أحمد تركي | ربّوهم بشكل طبيعي' : 'Ahmed Torky | Raise Them Normal'}" <${GMAIL_USER}>`,
       to: email,
-      subject: 'ربّوهم بشكل طبيعي — Raise Them Normal | كتابك بالمرفقات',
-      html: emailHtml,
+      subject: isAr ? 'ربّوهم بشكل طبيعي — كتابك بالمرفقات' : 'Raise Them Normal — Your book is attached',
+      html: buildHtml(isAr),
       attachments: [
-        {
-          filename: 'ربّوهم_بشكل_طبيعي_أحمد_تركي.docx',
-          content: arabicBuffer,
-          contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        },
-        {
-          filename: 'Raise_Them_Normal_Ahmed_Torky.docx',
-          content: englishBuffer,
-          contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        }
+        { filename: 'ربّوهم_بشكل_طبيعي_أحمد_تركي.docx', content: arabicBuffer, contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' },
+        { filename: 'Raise_Them_Normal_Ahmed_Torky.docx', content: englishBuffer, contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }
       ]
     });
-
-    console.log(`Email sent to ${email}${txId ? ` | tx: ${txId}` : ''}`);
+    console.log(`Email (${isAr ? 'ar' : 'en'}) sent to ${email}${txId ? ' | tx: ' + txId : ''}`);
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
-
   } catch (err) {
     console.error('Send error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Failed to send email' }) };

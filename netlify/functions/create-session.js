@@ -26,8 +26,8 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers, body: '' };
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
 
-  let email;
-  try { ({ email } = JSON.parse(event.body)); }
+  let email, lang;
+  try { ({ email, lang } = JSON.parse(event.body)); }
   catch { return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request' }) }; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid email address' }) };
@@ -50,13 +50,14 @@ exports.handler = async (event) => {
   const payload = {
     expireAt,
     maxFailureAttempts: 3,
+    failureRedirect: true,
     paymentType: 'credit',
     amount: PRICE,
     currency: CURRENCY,
     order,
     merchantId: MID,
     type: 'one-time',
-    display: 'ar',
+    display: (lang === 'en' ? 'en' : 'ar'),
     allowedMethods: 'card,wallet',
     merchantRedirect: SITE + '/success?e=' + b64url(email),
     customer: { email: email, reference: order },

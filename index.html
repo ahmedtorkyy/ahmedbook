@@ -198,12 +198,10 @@
       <span class="ar">English</span>
       <span class="en">عربي</span>
     </button>
-    <a href="#pricing">
-      <button class="nav-buy-btn">
-        <span class="ar">اشتري الكتاب</span>
-        <span class="en">Buy the Book</span>
-      </button>
-    </a>
+    <button class="nav-buy-btn" onclick="openCheckout()">
+      <span class="ar">اشتري الكتاب</span>
+      <span class="en">Buy the Book</span>
+    </button>
   </div>
 </nav>
 
@@ -221,8 +219,8 @@
     <p class="ar">من تجربة حياة حقيقية — دليل عملي لكل أم وأب عندهم طفل فاقد للبصر يريدون له حياة كاملة.</p>
     <p class="en">From a life lived from the inside — a practical guide for every parent of a blind child who wants them to live a full life.</p>
     <div class="hero-cta-group">
-      <a href="#pricing" class="btn-primary ar">اشتري النسختين — ١٠٩ جنيه</a>
-      <a href="#pricing" class="btn-primary en">Get Both Editions — 109 EGP</a>
+      <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary ar">اشتري النسختين — ١٠٩ جنيه</a>
+      <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary en">Get Both Editions — 109 EGP</a>
       <a href="#inside" class="btn-secondary ar">شوف جوه الكتاب</a>
       <a href="#inside" class="btn-secondary en">See What's Inside</a>
     </div>
@@ -368,12 +366,12 @@
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span class="ar">هوصلني الكتاب إزاي بعد الدفع؟</span><span class="en">How do I receive the book after payment?</span>
+          <span class="ar">هيوصلني الكتاب إزاي بعد الدفع؟</span><span class="en">How do I receive the book after payment?</span>
           <span class="icon">+</span>
         </button>
         <div class="faq-a">
-          <p class="ar">بعد إتمام الدفع بنجاح، هتتحول لصفحة بتطلب منك إيميلك. أدخل إيميلك وهيوصلك الكتابين كملفات مرفقة على طول — على أي جهاز.</p>
-          <p class="en">After successful payment, you'll be redirected to a page asking for your email. Enter your email and both editions will be sent to you as attachments immediately — on any device.</p>
+          <p class="ar">بعد إتمام الدفع، بنبعتلك النسختين كملفات مرفقة على الإيميل اللي دخلته — أوتوماتيك خلال دقائق. لو ما لاقيتهمش، شوف فولدر Spam أو Promotions.</p>
+          <p class="en">After payment, both editions are emailed to you automatically — to the address you entered — within a couple of minutes. If you don't see it, check your Spam or Promotions folder.</p>
         </div>
       </div>
 
@@ -454,7 +452,7 @@
     <a href="refund.html" class="ar">سياسة الاسترداد</a>
     <a href="refund.html" class="en">Refund Policy</a>
     <a href="#faq" class="ar">أسئلة شائعة</a><a href="#faq" class="en">FAQ</a>
-    <a href="#pricing" class="ar">اشتري</a><a href="#pricing" class="en">Buy</a>
+    <a href="javascript:void(0)" onclick="openCheckout()" class="ar">اشتري</a><a href="javascript:void(0)" onclick="openCheckout()" class="en">Buy</a>
   </div>
   <p style="margin-top:18px;font-size:.68rem;opacity:.35;">© 2026 Ahmed Torky. All rights reserved.</p>
 </footer>
@@ -495,7 +493,7 @@ async function startCheckout(){
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errAr.style.display='block'; errEn.style.display='block'; input.focus(); return; }
   btn.disabled=true; btn.classList.add('loading');
   try{
-    var res=await fetch('/.netlify/functions/create-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})});
+    var res=await fetch('/.netlify/functions/create-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,lang:(document.documentElement.dir==='ltr'?'en':'ar')})});
     var data=await res.json().catch(function(){return {};});
     if(res.ok && data.url){ window.location.href=data.url; return; }
     throw new Error('no url');
