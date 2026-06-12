@@ -187,7 +187,7 @@ function show(id){
   try{ sid = localStorage.getItem('rtn_pending') || ''; }catch(_e){}
 
   // No payment session in this browser (e.g. wallet buyer who wasn't redirected
-  // here, or a direct visit) → the book is emailed automatically by the webhook.
+  // here, or a direct visit) → guide them to download on the device they paid from.
   if(!sid){ show('email-note-state'); return; }
 
   show('checking-state');
