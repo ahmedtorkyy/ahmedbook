@@ -7,17 +7,17 @@
   <meta name="theme-color" content="#ffffff" />
   <title>Raise Them Normal — Ahmed Torky | ربّوهم بشكل طبيعي — أحمد تركي</title>
   <script>try{var l=localStorage.getItem('rtn_lang');if(l==='en'){document.documentElement.dir='ltr';document.documentElement.lang='en';}else if(l==='ar'){document.documentElement.dir='rtl';document.documentElement.lang='ar';}}catch(e){}</script>
-  <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
+  <meta name="description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — تحميل فوري بعد الدفع." />
   <!-- Open Graph -->
   <meta property="og:title" content="ربّوهم بشكل طبيعي — أحمد تركي" />
-  <meta property="og:description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — يوصلك على إيميلك فوراً." />
-  <meta property="og:image" content="https://ahmedtorkyy.netlify.app/books/cover_arabic.png" />
-  <meta property="og:url" content="https://ahmedtorkyy.netlify.app" />
+  <meta property="og:description" content="دليل لكل أم وأب عندهم طفل فاقد للبصر. من تجربة حياة حقيقية. ١٣ فصل — تحميل فوري بعد الدفع." />
+  <meta property="og:image" content="https://ahmedtorkyy.pages.dev/books/cover_arabic.png" />
+  <meta property="og:url" content="https://ahmedtorkyy.pages.dev" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Raise Them Normal — Ahmed Torky" />
   <meta name="twitter:description" content="A guide for every parent of a blind child. From lived experience. 13 chapters — instant download." />
-  <meta name="twitter:image" content="https://ahmedtorkyy.netlify.app/books/cover_english.png" />
+  <meta name="twitter:image" content="https://ahmedtorkyy.pages.dev/books/cover_english.png" />
   <link rel="icon" type="image/png" href="books/favicon.png" />
   <link rel="apple-touch-icon" href="books/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,11 +94,13 @@
     .inside{background:#ffffff;}
     .chapters-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
     @media(max-width:580px){.chapters-grid{grid-template-columns:1fr;}}
-    .chapter-card{background:var(--card);border-radius:12px;padding:18px 22px;border-right:4px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;}
-    html[dir="ltr"] .chapter-card{border-right:none;border-left:4px solid var(--gold);}
-    .chapter-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.13);}
-    .chapter-num{color:var(--gold);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
-    .chapter-title{font-size:.9rem;font-weight:700;color:var(--white);margin-top:4px;}
+    .chapter-card{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid #ececec;border-radius:14px;padding:16px 20px;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s,border-color .2s;text-align:start;}
+    .chapter-card:last-child{grid-column:1 / -1;}
+    .chapter-badge{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;}
+    .chapter-text{min-width:0;}
+    .chapter-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.12);border-color:var(--gold);}
+    .chapter-num{color:var(--muted);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+    .chapter-title{font-size:.95rem;font-weight:800;color:var(--text);margin-top:2px;line-height:1.35;}
 
     /* ── QUOTE STRIP ── */
     .quote-strip{background:#ffffff;color:var(--white);text-align:center;padding:56px 24px;}
@@ -284,19 +286,19 @@
     <p class="lead ar">مش مجرد نصايح — ده ما اتعلمته من حياتي الفعلية، مكتوب بصدق لكل أهل طفل فاقد للبصر.</p>
     <p class="lead en">Not just advice — what I actually learned from living it, written honestly for every parent of a blind child.</p>
     <div class="chapters-grid">
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الأول</div><div class="chapter-num en">Chapter 1</div><div class="chapter-title ar">اليوم اللي عرفت فيه</div><div class="chapter-title en">The Day You Found Out</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الثاني</div><div class="chapter-num en">Chapter 2</div><div class="chapter-title ar">أكبر غلطة</div><div class="chapter-title en">The Biggest Mistake</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الثالث</div><div class="chapter-num en">Chapter 3</div><div class="chapter-title ar">ربّوهم بشكل طبيعي</div><div class="chapter-title en">Raise Them Normal</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الرابع</div><div class="chapter-num en">Chapter 4</div><div class="chapter-title ar">مرحلة بمرحلة</div><div class="chapter-title en">Age by Age</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الخامس</div><div class="chapter-num en">Chapter 5</div><div class="chapter-title ar">المدرسة، الجامعة، والدفاع عن حقوقك</div><div class="chapter-title en">School, University &amp; Fighting for Rights</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل السادس</div><div class="chapter-num en">Chapter 6</div><div class="chapter-title ar">طريقة تفكير الشخص الكفيف</div><div class="chapter-title en">The Mind of a Blind Person</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل السابع</div><div class="chapter-num en">Chapter 7</div><div class="chapter-title ar">العالم خارج البيت</div><div class="chapter-title en">The World Outside</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الثامن</div><div class="chapter-num en">Chapter 8</div><div class="chapter-title ar">التكنولوجيا: الأدوات اللي غيّرت كل شيء</div><div class="chapter-title en">Technology: The Tools That Change Everything</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل التاسع</div><div class="chapter-num en">Chapter 9</div><div class="chapter-title ar">الحوار</div><div class="chapter-title en">The Conversation</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل العاشر</div><div class="chapter-num en">Chapter 10</div><div class="chapter-title ar">الأشياء التي يفهمها العالم بشكل خاطئ</div><div class="chapter-title en">What the World Gets Wrong</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الحادي عشر</div><div class="chapter-num en">Chapter 11</div><div class="chapter-title ar">العمل والمستقبل</div><div class="chapter-title en">Careers: What Is Actually Possible</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الثاني عشر</div><div class="chapter-num en">Chapter 12</div><div class="chapter-title ar">كلمة للإخوات</div><div class="chapter-title en">A Word for Siblings</div></div>
-      <div class="chapter-card"><div class="chapter-num ar">الفصل الثالث عشر</div><div class="chapter-num en">Chapter 13</div><div class="chapter-title ar">الجمال والفرح والحياة اللي محدش بيحكي لك عنها</div><div class="chapter-title en">Beauty, Joy &amp; The Life Nobody Tells You About</div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">1</div><div class="chapter-text"><div class="chapter-num ar">الفصل الأول</div><div class="chapter-num en">Chapter 1</div><div class="chapter-title ar">اليوم اللي عرفت فيه</div><div class="chapter-title en">The Day You Found Out</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">2</div><div class="chapter-text"><div class="chapter-num ar">الفصل الثاني</div><div class="chapter-num en">Chapter 2</div><div class="chapter-title ar">أكبر غلطة</div><div class="chapter-title en">The Biggest Mistake</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">3</div><div class="chapter-text"><div class="chapter-num ar">الفصل الثالث</div><div class="chapter-num en">Chapter 3</div><div class="chapter-title ar">ربّوهم بشكل طبيعي</div><div class="chapter-title en">Raise Them Normal</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">4</div><div class="chapter-text"><div class="chapter-num ar">الفصل الرابع</div><div class="chapter-num en">Chapter 4</div><div class="chapter-title ar">مرحلة بمرحلة</div><div class="chapter-title en">Age by Age</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">5</div><div class="chapter-text"><div class="chapter-num ar">الفصل الخامس</div><div class="chapter-num en">Chapter 5</div><div class="chapter-title ar">المدرسة، الجامعة، والدفاع عن حقوقك</div><div class="chapter-title en">School, University &amp; Fighting for Rights</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">6</div><div class="chapter-text"><div class="chapter-num ar">الفصل السادس</div><div class="chapter-num en">Chapter 6</div><div class="chapter-title ar">طريقة تفكير الشخص الكفيف</div><div class="chapter-title en">The Mind of a Blind Person</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">7</div><div class="chapter-text"><div class="chapter-num ar">الفصل السابع</div><div class="chapter-num en">Chapter 7</div><div class="chapter-title ar">العالم خارج البيت</div><div class="chapter-title en">The World Outside</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">8</div><div class="chapter-text"><div class="chapter-num ar">الفصل الثامن</div><div class="chapter-num en">Chapter 8</div><div class="chapter-title ar">التكنولوجيا: الأدوات اللي غيّرت كل شيء</div><div class="chapter-title en">Technology: The Tools That Change Everything</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">9</div><div class="chapter-text"><div class="chapter-num ar">الفصل التاسع</div><div class="chapter-num en">Chapter 9</div><div class="chapter-title ar">الحوار</div><div class="chapter-title en">The Conversation</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">10</div><div class="chapter-text"><div class="chapter-num ar">الفصل العاشر</div><div class="chapter-num en">Chapter 10</div><div class="chapter-title ar">الأشياء التي يفهمها العالم بشكل خاطئ</div><div class="chapter-title en">What the World Gets Wrong</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">11</div><div class="chapter-text"><div class="chapter-num ar">الفصل الحادي عشر</div><div class="chapter-num en">Chapter 11</div><div class="chapter-title ar">العمل والمستقبل</div><div class="chapter-title en">Careers: What Is Actually Possible</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">12</div><div class="chapter-text"><div class="chapter-num ar">الفصل الثاني عشر</div><div class="chapter-num en">Chapter 12</div><div class="chapter-title ar">كلمة للإخوات</div><div class="chapter-title en">A Word for Siblings</div></div></div>
+      <div class="chapter-card"><div class="chapter-badge" aria-hidden="true">13</div><div class="chapter-text"><div class="chapter-num ar">الفصل الثالث عشر</div><div class="chapter-num en">Chapter 13</div><div class="chapter-title ar">الجمال والفرح والحياة اللي محدش بيحكي لك عنها</div><div class="chapter-title en">Beauty, Joy &amp; The Life Nobody Tells You About</div></div></div>
     </div>
   </div>
 </section>
@@ -316,8 +318,8 @@
     <h2 class="ar">النسختين — بسعر واحد</h2>
     <h2 class="en">Both Editions — One Price</h2>
     <hr class="divider center" />
-    <p class="lead ar" style="margin:0 auto 36px;">اشتري مرة واحدة — النسختين يوصلوك على إيميلك كملفات مرفقة فوراً.</p>
-    <p class="lead en" style="margin:0 auto 36px;">Buy once — both editions sent to your email as attachments immediately.</p>
+    <p class="lead ar" style="margin:0 auto 36px;">اشتري مرة واحدة — حمّل النسختين فورًا بعد الدفع مباشرة.</p>
+    <p class="lead en" style="margin:0 auto 36px;">Buy once — download both editions instantly after payment.</p>
 
     <div class="pricing-single">
       <div class="pricing-card">
@@ -343,15 +345,15 @@
           <li><span class="ar">النسخة العربية الكاملة — بالعامية المصرية</span><span class="en">Full Arabic edition — Egyptian dialect</span></li>
           <li><span class="ar">النسخة الإنجليزية الكاملة — للأسر في الخارج</span><span class="en">Full English edition — for families abroad</span></li>
           <li><span class="ar">١٣ فصل في كل نسخة</span><span class="en">13 chapters in each edition</span></li>
-          <li><span class="ar">يوصلك على إيميلك فوراً بعد الدفع — كملفات مرفقة</span><span class="en">Sent to your email immediately after payment — as attachments</span></li>
+          <li><span class="ar">تحميل فوري بعد الدفع مباشرة</span><span class="en">Instant download right after payment</span></li>
           <li><span class="ar">صيغة Word — تشتغل مع كل قارئات الشاشة</span><span class="en">Word format — works with all screen readers</span></li>
         </ul>
 
         <a href="javascript:void(0)" onclick="openCheckout()" class="buy-btn ar"><i class="fas fa-cart-shopping"></i> اشتري دلوقتي — ١٠٩ جنيه</a>
         <a href="javascript:void(0)" onclick="openCheckout()" class="buy-btn en"><i class="fas fa-cart-shopping"></i> Buy Now — 109 EGP</a>
 
-        <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع الكتابين هيوصلوك على إيميلك فوراً.</p>
-        <p class="secure-note en">🔒 Secure encrypted payment — both editions sent to your email immediately after.</p>
+        <p class="secure-note ar">🔒 دفع آمن ومشفر — بعد الدفع هتحمّل الكتابين فورًا من صفحة التأكيد.</p>
+        <p class="secure-note en">🔒 Secure encrypted payment — download both editions instantly on the next page.</p>
       </div>
     </div>
   </div>
@@ -370,8 +372,8 @@
           <span class="icon">+</span>
         </button>
         <div class="faq-a">
-          <p class="ar">بعد إتمام الدفع، بنبعتلك النسختين كملفات مرفقة على الإيميل اللي دخلته — أوتوماتيك خلال دقائق. لو ما لاقيتهمش، شوف فولدر Spam أو Promotions.</p>
-          <p class="en">After payment, both editions are emailed to you automatically — to the address you entered — within a couple of minutes. If you don't see it, check your Spam or Promotions folder.</p>
+          <p class="ar">بعد إتمام الدفع على طول هتروح لصفحة فيها أزرار تحميل النسختين — حمّلهم على جهازك فورًا. الدفع بيتم بأمان عبر Kashier.</p>
+          <p class="en">Right after payment you're taken to a page with instant download buttons for both editions — save them to your device immediately. Payment is handled securely by Kashier.</p>
         </div>
       </div>
 
@@ -507,10 +509,10 @@ document.addEventListener('keydown',function(e){ var m=document.getElementById('
   <div class="co-overlay" onclick="closeCheckout()"></div>
   <div class="co-box" role="dialog" aria-modal="true">
     <button class="co-close" onclick="closeCheckout()" aria-label="Close">&times;</button>
-    <h3 class="co-title ar">إيميلك لاستلام الكتاب</h3>
-    <h3 class="co-title en">Your email to receive the book</h3>
-    <p class="co-sub ar">هنبعتلك النسختين على الإيميل ده فور إتمام الدفع.</p>
-    <p class="co-sub en">Both editions are emailed here right after payment.</p>
+    <h3 class="co-title ar">إيميلك (للإيصال)</h3>
+    <h3 class="co-title en">Your email (for your receipt)</h3>
+    <p class="co-sub ar">بعد الدفع هتلاقي أزرار تحميل الكتابين على طول. إيميلك للإيصال بس.</p>
+    <p class="co-sub en">After payment you'll get instant download buttons. Your email is just for your receipt.</p>
     <input type="email" id="co-email" class="co-input" placeholder="example@gmail.com" inputmode="email" autocomplete="email" />
     <p class="co-error ar" id="co-err-ar">من فضلك أدخل إيميل صحيح.</p>
     <p class="co-error en" id="co-err-en">Please enter a valid email.</p>
