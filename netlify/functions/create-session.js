@@ -28,7 +28,7 @@ exports.handler = async (event) => {
 
   let email, lang;
   try { ({ email, lang } = JSON.parse(event.body)); }
-  catch { return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request' }) }; }
+  catch (e) { return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request' }) }; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid email address' }) };
   }
@@ -59,7 +59,9 @@ exports.handler = async (event) => {
     type: 'one-time',
     display: (lang === 'en' ? 'en' : 'ar'),
     allowedMethods: 'card,wallet',
-    merchantRedirect: SITE + '/success?e=' + b64url(email),
+    merchantRedirect: SITE + '/success',
+    redirectMethod: 'get',
+    serverWebhook: SITE + '/.netlify/functions/kashier-webhook',
     customer: { email: email, reference: order },
     description: 'Raise Them Normal / Rabbohom Beshakl Tabiei - both editions'
   };
