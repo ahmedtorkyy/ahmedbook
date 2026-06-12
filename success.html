@@ -110,8 +110,8 @@
         </a>
       </div>
       <div class="email-note">
-        <span class="ar">📩 بعتنالك نسخة كمان على إيميلك للاحتفاظ بيها في أي وقت.</span>
-        <span class="en">📩 We've also emailed you a copy to keep for anytime access.</span>
+        <span class="ar">💾 احفظ الملفات على جهازك. تقدر ترجع للصفحة دي وتحمّل تاني في أي وقت من نفس الجهاز.</span>
+        <span class="en">💾 Save the files to your device. You can re-open this page and download again anytime from the same device.</span>
       </div>
       <div class="divider"></div>
       <p class="support ar">قريت الكتاب؟ يشرّفنا رأيك — ابعتلنا على <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a> وتابعنا:</p>
@@ -127,18 +127,18 @@
       <p class="quote en">"Work hard in silence. Let your success make the noise." — Ahmed Torky</p>
     </div>
 
-    <!-- EMAIL NOTE (buyer not redirected with a session, e.g. wallet — book is emailed) -->
+    <!-- INFO (no payment session in this browser — guide them to download on the right device) -->
     <div id="email-note-state">
-      <div class="top-icon">📬</div>
-      <h1 class="ar">تم الدفع بنجاح!</h1>
-      <h1 class="en">Payment successful!</h1>
+      <div class="top-icon">📥</div>
+      <h1 class="ar">تم الدفع؟</h1>
+      <h1 class="en">Already paid?</h1>
       <div class="email-note">
-        <span class="ar">كتابك في طريقه لإيميلك دلوقتي — النسختين العربية والإنجليزية. اتأكد من Inbox و Spam خلال دقيقة.</span>
-        <span class="en">Your book is on its way to your email now — both editions. Check Inbox and Spam within a minute.</span>
+        <span class="ar">لو لسه دافع وما ظهرش زر التحميل، افتح الصفحة دي من <strong>نفس الجهاز والمتصفح</strong> اللي دفعت منه وهيظهرلك التحميل على طول.</span>
+        <span class="en">If you've just paid and don't see a download button, open this page on the <strong>same device and browser</strong> you paid from — your download will appear right away.</span>
       </div>
       <div class="divider"></div>
-      <p class="support ar">ما وصلش خلال دقايق؟ تواصل معنا على <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a> أو <a href="mailto:ahmedassem.eltorky@gmail.com">إيميل</a>.</p>
-      <p class="support en">Didn't arrive within a few minutes? Reach us on <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a> or <a href="mailto:ahmedassem.eltorky@gmail.com">email</a>.</p>
+      <p class="support ar">محتاج مساعدة؟ ابعتلنا صورة تأكيد الدفع على <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a> وهنبعتلك الكتاب فورًا.</p>
+      <p class="support en">Need help? Send your payment confirmation on <a href="https://wa.me/201068000080" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a> and we'll get your book to you right away.</p>
       <div class="socials">
         <a href="https://www.tiktok.com/@torkyy99" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         <a href="https://www.instagram.com/torkyy99/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -192,7 +192,7 @@ function show(id){
 
   show('checking-state');
 
-  fetch('/.netlify/functions/verify-payment', {
+  fetch('/api/verify-payment', {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify({ sid: sid })
   })
@@ -209,9 +209,9 @@ function show(id){
   })
   .catch(function(){
     try{ localStorage.removeItem('rtn_pending'); }catch(_e){}
-    show('email-note-state');            // network hiccup → fall back to the email note
-  });
-})();
-</script>
+    show('email-note-state');            // network hiccup → fall back to the info note
+    });
+  })();
+  </script>
 </body>
 </html>

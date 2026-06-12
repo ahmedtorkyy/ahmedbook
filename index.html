@@ -453,6 +453,7 @@
     <a href="refund.html" class="en">Refund Policy</a>
     <a href="#faq" class="ar">أسئلة شائعة</a><a href="#faq" class="en">FAQ</a>
     <a href="javascript:void(0)" onclick="openCheckout()" class="ar">اشتري</a><a href="javascript:void(0)" onclick="openCheckout()" class="en">Buy</a>
+    <a href="success.html" class="ar">اشتريت بالفعل؟ حمّل كتابك</a><a href="success.html" class="en">Already bought? Download your book</a>
   </div>
   <p style="margin-top:18px;font-size:.68rem;opacity:.35;">© 2026 Ahmed Torky. All rights reserved.</p>
 </footer>
@@ -493,7 +494,7 @@ async function startCheckout(){
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errAr.style.display='block'; errEn.style.display='block'; input.focus(); return; }
   btn.disabled=true; btn.classList.add('loading');
   try{
-    var res=await fetch('/.netlify/functions/create-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,lang:(document.documentElement.dir==='ltr'?'en':'ar')})});
+    var res=await fetch('/api/create-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,lang:(document.documentElement.dir==='ltr'?'en':'ar')})});
     var data=await res.json().catch(function(){return {};});
     if(res.ok && data.url){ try{ if(data.sid){ localStorage.setItem('rtn_pending', data.sid); } }catch(_e){} window.location.href=data.url; return; }
     throw new Error('no url');
